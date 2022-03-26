@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.nav-brand a{
+    color: #fff;
+}
+
+.banner{
+    background-color: #9EA7AD;
+    height: 100vh;
+}
+.banner h2{
+    color: #fff;
+    margin-left: 40px;
+    margin-top: 200px;
+    font-size: 50px;
+}
+.banner p{
+    margin-left: 40px;
+    font-size: 15px;
+    width: 80%;
+    text-align: justify;
+    color:#fff;
+}
+.banner a{
+    background-color: #fff;
+    width: 200px;
+    border-radius: 20px;
+    margin-left: 40px;
+    color: #003377;
+}
+.banner img{
+    width: 650px;
+    height: 500px;
+    margin-top: 130px;
+}
