@@ -550,83 +550,101 @@ a {
 /**************** Login CSS ***********************/
 
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
-}
-
 body {
-    background-color: #272828;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
-}
-
-.container {
-    max-width: 500px;
-    border-radius: 10px;
-    margin: 50px auto;
-    padding: 30px 40px;
-    box-shadow: 5px 5px 10px rgb(206, 206, 206)
-}
-
-.container.col-md-8 {
-    max-width: 500px;
-}
+  font-family: "Poppins", sans-serif;
+  background-color: #000000; }
 
 
-.card-header {
-    font-family: 'Archivo';
-    font-size: 2.0rem;
-    font-weight: bold;
-    color: #50347A;
-    text-align: center;
-    
-}
-
-.justify-content-center {
-    border-radius: 5px;
-    display: inherit;
-    align-items: center;
-    cursor: pointer;
-    color: #400485;
-    
-}
-
-.justify-content-center:hover {
-    cursor: pointer;
-    
-}
-
-.col-md-8 {
-    max-width: 500px;
-}
-
-.col-md-8:hover {
-    cursor: pointer;
-}
-
-.offset-md-4 {
-    margin-left: 160px;
-}
-
-.btn.btn-link {
-    border: none;
-    outline: none;
-    box-shadow: none
-}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Poppins", sans-serif; 
+  font color: #50347A;}
 
 a {
-    text-decoration: none;
-    color: #332355;
-    font-weight: 700
-}
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  a:hover {
+    text-decoration: none !important; }
 
-a:hover {
-    text-decoration: none;
-    color: #50347A;
-}
+.content {
+  padding: 7rem 0; }
 
+h1 {
+  font-size: 45px;
+  color: #50347A; }
+
+@media (max-width: 991.98px) {
+  .content .bg {
+    height: 500px; } }
+
+.content .contents, .content .bg {
+  width: 50%;
+  padding-top: 50px; }
+  @media (max-width: 1199.98px) {
+    .content .contents, .content .bg {
+      width: 100%; } }
+  .content .contents .form-group, .content .bg .form-group {
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: 15px 15px;
+    border-bottom: none;
+    position: relative;
+    background: #edf2f5;
+    }
+    .content .contents .form-group label, .content .bg .form-group label {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease; }
+    .content .contents .form-group input, .content .bg .form-group input {
+      background: transparent; }
+    .content .contents .form-group.first, .content .bg .form-group.first {
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px; }
+    .content .contents .form-group.last, .content .bg .form-group.last {
+      border-bottom-left-radius: 7px;
+      border-bottom-right-radius: 7px; }
+    .content .contents .form-group label, .content .bg .form-group label {
+      font-size: 12px;
+      display: block;
+      margin-bottom: 0;
+      color: #b3b3b3; }
+    .content .contents .form-group.focus, .content .bg .form-group.focus {
+      background: #fff;
+      border-radius: 10px;}
+    .content .contents .form-group.field--not-empty label, .content .bg .form-group.field--not-empty label {
+      margin-top: -20px; }
+  .content .contents .form-control, .content .bg .form-control {
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    border-radius: 0; }
+    .content .contents .form-control:active, .content .contents .form-control:focus, .content .bg .form-control:active, .content .bg .form-control:focus {
+      outline: none;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+
+.col-md-8 {
+    background-color: #E6E9EE;
+    border-radius: 10px;
+}
+.content .bg {
+  background-size: cover;
+  background-position: center; }
+
+.content a {
+  color: #888;
+  text-decoration: underline; }
+
+.content .btn {
+  height: 54px;
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .btn.btn-primary {
     border-radius: 20px;
@@ -637,37 +655,3 @@ a:hover {
 .btn.btn-primary:hover {
     background-color: #332355
 }
-
-@media(max-width: 575px) {
-    .wrapper {
-        margin: 10px
-    }
-}
-
-@media(max-width:424px) {
-    .wrapper {
-        padding: 30px 10px;
-        margin: 5px
-    }
-
-    .option {
-        position: relative;
-        padding-left: 22px
-    }
-
-    .option label.text-muted {
-        font-size: 0.95rem
-    }
-
-    .checkmark {
-        position: absolute;
-        top: 2px
-    }
-
-    .option .checkmark:after {
-        top: 50%
-    }
-
-    #forgot {
-        font-size: 0.95rem
-    }
