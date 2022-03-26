@@ -48,10 +48,13 @@ Open .env and set DB_DATABASE=school_attendance_system
 Open phpmyadmin and create database name: school_attendance_system
 ```
 ```sh
-php artisan key:generate
+composer update
 ```
 ```sh
 composer install
+```
+```sh
+php artisan key:generate
 ```
 ```sh
 php artisan migrate:fresh --seed
