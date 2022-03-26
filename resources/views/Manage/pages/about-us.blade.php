@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="main-content" id="panel">
-            Test
+            <div class="bg-success"> Assign to Tricia Elis Blanca </div>
     </div>
 
 @endsection
