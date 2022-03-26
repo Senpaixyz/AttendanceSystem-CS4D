@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('Manage.layouts.public-app')
 @section('content')
   <head>
     <!-- Required meta tags -->
@@ -7,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-
-   
-    
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('Manage/css/style.css')}}" type="text/css">
 
@@ -17,15 +13,39 @@
   
   <body>
   
-
+    <section id="navbar bg-danger">
+        <nav class="navbar navbar-expand-lg bg-gradient-default  py-3">
+            <div class="container ">
+                <a class="navbar-brand text-white" href="{{ route('home') }}">
+                    <span>Attendance System</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars text-light"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item  ">
+                            <a class="nav-link text-white" href="{{ route('home') }}">HOME</a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a class="nav-link text-white" href="{{ route('about-us') }}">ABOUT US</a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a class="nav-link text-white" href="{{ route('login') }}">LOG IN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
   
   <div class="content">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <img src="{{ asset('Manage/img/login.png') }}" alt="Image" class="img-fluid">
+        <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-6 ">
+          <img src="{{ asset('Manage/img/login-image2.png') }}" alt="Image" class="img-fluid ">
         </div>
-        <div class="col-md-6 contents">
+        <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-6 contents">
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">

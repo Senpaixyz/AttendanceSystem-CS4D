@@ -15,20 +15,20 @@ use Illuminate\Support\Facades\Route;
 // public route
 Route::get('/', function () {
     return view('Manage.pages.landing-page');
-});
+})->name('home');
 Route::get('/about-us', function () {
     return view('Manage.pages.about-us');
-});
+})->name('about-us');
 
 Route::get('/login', function () {
     return view('auth.login');
-});
+})->name('login');
 
 Auth::routes(['register' =>true, 'reset' => false]);
 
-Route::get('/home', function (){
-    abort(404);
-})->name('home');
+// Route::get('/home', function (){
+//     abort(404);
+// })->name('home');
 
 
 Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 'admin'], function () {

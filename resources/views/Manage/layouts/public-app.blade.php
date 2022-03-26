@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('Manage/css/argon.css?v=1.2.0')}}" type="text/css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('Manage/css/custom.css')}}" type="text/css">
-    <title>Attendance System</title>
+    <title>SAS</title>
     <style>
         :root {
             --primary: {{ Config::get('settings.dashboard_color') }};
