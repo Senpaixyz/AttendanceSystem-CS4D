@@ -1,37 +1,77 @@
 *{
-    margin:0;
+    margin: 0;
     padding: 0;
 }
-.nav-brand a{
-    color: #fff;
+body{
+    background-image: linear-gradient(to right, #fff, #fff);
 }
+#navbar{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar{
+    background-image: linear-gradient(to right, #a517ba, #e791f5);
+    padding: 1px 5px;
+}
+.navbar-brand span{
+   color: #fff;
+   font-weight: 600;
+   font-size: 25px;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+.navbar-brand img{
+    width: 18px;
+    height: 18px;
+}
+.navbar-nav li{
+    padding-right: 10px;
+}
+.navbar-nav li a{
+    color: black !important;
+    font-weight: 500;
+    float: right;
+    text-align: left;
+    transition: .5s cubic-bezier(1.075, 1.82, 1.165, 1);
+}
+.nav-link a:hover{
+    color: coral;
+}
+.fa-bars{
+    color: #fff;
+    font-size: 30px !important;
+}
+.nav-toggler{
+    outline: none !important;
+}
+.custome-section{
+    width: inherit;
+    padding: 30px;
 
-.banner{
-    background-color: #9EA7AD;
-    height: 100vh;
+    @media screen and (max-width:991.98px){
+        flex-direction: column-reverse;
+    }
 }
-.banner h2{
-    color: #fff;
-    margin-left: 40px;
-    margin-top: 200px;
-    font-size: 50px;
+.col-lg-4{
+    margin-top: 140px;
 }
-.banner p{
-    margin-left: 40px;
-    font-size: 15px;
-    width: 80%;
+.col-lg-4 h2{
+    font-weight: 600;
+    font-size: 45px;
+    color: black;
+    margin-bottom: 30px;
+    line-height: 1;
+    white-space: nowrap;
+}
+.col-lg-4 p{
     text-align: justify;
-    color:#fff;
 }
-.banner a{
-    background-color: #fff;
-    width: 200px;
-    border-radius: 20px;
-    margin-left: 40px;
-    color: #003377;
-}
-.banner img{
-    width: 650px;
-    height: 500px;
-    margin-top: 130px;
+.col-lg-8 img{
+    width: 100%;
+
+    @media screen and (max-width:991.98px){
+        width: 100%;
+        top: 0;
+        right:0;
+    }
 }

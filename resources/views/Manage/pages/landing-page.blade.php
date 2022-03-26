@@ -2,39 +2,56 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{asset('/Manage/css/landing.css')}}" type="text/css">
+<head>
+    <meta charset="uft-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('Manage/css/landing.css')}}" type="text/css">
+</head>
+<body>
+    <section id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light py-3">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <span>Attendance System</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" href="#">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
 
-
-<nav class="navbar navbar-expand-lg py-3 navbar-light fixed-top">
     <div class="container">
-        <a class="navbar-brand">Attendance System</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                </li>
-            </ul>
-            <button class="btn btn-primary ml-lg-3"><a href="{{ route('login') }}" class="text-light">Log in</a></button>
+        <div class="row custom-section align-items-center">
+            <div class="col-lg-4">
+                <h2>School Attendance <br> System</h2>
+                <p> Absents leads to bad academic performance and well being. School attendance system monitors each student's arrival in school.
+                It allows teachers and administrators having a clear overview of classroom and individuals’ attendance rates anytime, anywhere.</p>
+                <button type="button" class="btn btn-outline-primary">Get Started</button>
+            </div>
+            <div class="col-lg-8">
+                <img src="Manage/img/time.png" class="img-fluid" alt="School Attendance Banner">
+            </div>
+            
         </div>
     </div>
-</nav>
-
-<div class="container-fluid banner">
-    <div class="row">
-        <div class="col-md-6">
-            <h2>School Attendance System</h2>
-            <p>Absents leads to bad academic performance and well being. School attendance system monitors each student's arrival in school.
-            It allows teachers and administrators having a clear overview of classroom and individuals’ attendance rates anytime, anywhere. </p>
-            <a class="btn">Get Started</a>
-        </div>
-        <div class="col-md-6">
-            <img src="Manage/img/tm.png">
-        </div>
-    </div>
-</div>
+</body>
 
 @endsection
 
