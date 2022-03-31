@@ -67,8 +67,8 @@
                     @elseif(Auth::user()->role == 'User')
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('user/teacher-dashboard')) ? 'active' : '' }}" href="{{ route('teacher-dashboard') }}">
-                                <i class="ni ni-tv-2 text-lightviolet"></i>
-                                <span class="nav-link-text">Dashboard</span>
+                                <i class="fa fa-home text-lightviolet"></i>
+                                <span class="nav-link-text">Home</span>
                             </a>
                         </li>
 
@@ -87,7 +87,7 @@
                         </li>
 
                          <!-- Add Courses -->
-                         <li class="nav-item">
+                         {{-- <li class="nav-item">
                             <a class="nav-link {{ (request()->is('user/view-subjects*')) ? 'active' : '' }}" href="{{ route('view-subjects.index') }}">
                                 <i class="fas fa-book-open text-lightviolet"></i>
                                 <span class="nav-link-text">Subjects</span>
@@ -99,7 +99,7 @@
                                 <i class="fas fa-calendar-alt text-lightviolet"></i>
                                 <span class="nav-link-text">Attendance</span>
                             </a>
-                        </li>
+                        </li> --}}
 
 
     

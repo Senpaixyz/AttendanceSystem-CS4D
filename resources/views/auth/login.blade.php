@@ -48,9 +48,19 @@
         <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-6 contents">
           <div class="row justify-content-center">
             <div class="col-md-8">
+              
               <div class="mb-4">
                 <div class="text-center py-3"><h1 class="display-5">{{ __('SIGN IN') }}</h1></div>
-            </div>
+               
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong>STOP!</strong>{{ session('error') }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                @endif
+              </div>
             <form method="POST" action="{{ route('login') }}">
               @csrf
               <div class="form-group first">
@@ -60,7 +70,7 @@
                       <strong>{{ $message }}</strong>
                   </span>
                 @enderror
-
+               
               </div>
               <div class="form-group last mb-4">
                 <label for="password" class="col-5 col-form-label">{{ __('Password') }}</label>

@@ -1,9 +1,15 @@
 @extends('Manage.layouts.app')
 
 @section('content')
+
     <div class="main-content" id="panel">
     @include('Manage.includes.header')
     <!-- Header -->
+        <style>
+                a[disabled="disabled"] {
+                pointer-events: none;
+            }
+        </style>
         <div class="header bg-primary">
             <div class="container-fluid">
                 <div class="header-body">
@@ -44,7 +50,7 @@
                                 </thead>
                                 <tbody class="list text-white">
                                 @foreach ($users as $user)
-                                    <tr>
+                                    <tr id="set-text-danger-{{ $user->id }}" class="{{ $user->status == "active" ? '' : 'text-danger' }}">
                                         <td class="text-capitalize">
                                             {{ $user->name }}
                                         </td>
@@ -55,13 +61,16 @@
                                             {{ $user->role == 'Admin' ? 'Head Teacher' : 'Teacher' }}
                                         </td>
                                         <td>
-                                            <button data-toggle="modal" data-target="#updateTeacher-{{ $user->id }}" class="btn btn-sm bg-green text-white m-0 radius" title="edit">
+                                            <button data-toggle="modal" data-target="#updateTeacher-{{ $user->id }}" 
+                                                class="btn btn-sm bg-green text-white m-0 radius set-status-{{ $user->id }}" title="edit"
+                                                {{ $user->status == "active" ? '' : 'disabled' }}>
                                                 <i class="fas fa-edit" aria-hidden="true"></i>
                                             </button>
                                             <!-- Update Student Modal -->
                                             @include('Manage.pages.Teachers.modals.UpdateTeacherModal', ['user' => $user])
                                             <!--/ Update Student Modal -->
-                                            <a href="{{ route('teacher.show', $user) }}" class="btn btn-sm bg-blue text-white m-0 radius" title="edit">
+                                            <a href="{{ route('teacher.show', $user) }}" class="btn btn-sm bg-blue text-white m-0 radius set-status-{{ $user->id }}" 
+                                                title="edit" {{ $user->status == "active" ? '' : 'disabled=disabled' }}>
                                                 <i class="fas fa-eye" aria-hidden="true"></i>
                                             </a>
                                             {{-- <a href="{{ route('teacher.assign-subject', $user) }}" class="btn btn-sm bg-yellow text-white m-0 radius" title="Assign Subjects">
@@ -70,10 +79,23 @@
                                             <form action="{{ route('teacher.destroy', $user) }}" class="d-inline" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm bg-red text-white radius" title="delete">
+                                                <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm bg-red text-white radius set-status-{{ $user->id }}"
+                                                     title="delete" {{ $user->status == "active" ? '' : 'disabled' }}>
                                                     <i class="fas fa-trash" aria-hidden="true"></i>
                                                 </button>
                                             </form>
+                                           
+                                            @if($user->role == 'User')
+                                            |
+                                                <button  id="user-{{ $user->id }}" class="update-enable-disable btn btn-sm  text-white m-0 ml-1 radius 
+                                                    {{ $user->status == "active" ? 'bg-green' : 'bg-danger' }}" title="User Status">
+                                                    @if($user->status == "active")
+                                                        <i class="fa fa-unlock" aria-hidden="true"></i> 
+                                                    @else
+                                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                                    @endif 
+                                                </button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -88,5 +110,50 @@
     </div>
 @endsection
 @push('scripts')
+<script>
+$(document).ready(function(){
+    $(".update-enable-disable").on("click",function(){
+        let form = new FormData();
+        let node =  $(this).attr("id");
+        let id = node.split("-")[1];
+        form.append('id',id);
+        let current_node = $(this);
+        $.ajax({
+            url: '/admin/update-enable-disable',   
+            data: form,   
+            contentType: false,
+            processData: false,     
+            type: 'POST',
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success:function(data)
+            {
+                if(data.result == 'success'){
+                    if(data.status == 'active'){
+                        current_node.html(`<i class="fa fa-unlock" aria-hidden="true"></i>`);
+                        current_node.removeClass('bg-danger').addClass('bg-green');
+                        $(`.set-status-${data.id}`).removeAttr('disabled');
+                        $(`#set-text-danger-${data.id}`).removeClass('text-danger');
+                    }
+                    else{
+                        current_node.html(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+                        current_node.removeClass('bg-green').addClass('bg-danger');
+                        $(`.set-status-${data.id}`).attr('disabled',true);
+                        $(`#set-text-danger-${data.id}`).addClass('text-danger');
+                    }
+                   
+                }
+                else{
+                    window.alert("You cannot disabled Head Teacher");
+                }
+            },
+            error: function(e) {
+                console.log(e);
+                window.alert("ERROR!");   
+            }
+        });
+    });
+      
+});
 
+</script>
 @endpush

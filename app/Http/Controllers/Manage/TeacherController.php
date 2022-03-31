@@ -18,7 +18,12 @@ use Illuminate\Contracts\View\View;
 
 class TeacherController extends BaseController
 {
-    /**
+    public function __construct()
+    {
+        //assign the middleware to all the methods of the controller
+        $this->middleware('role:Admin');
+    }
+        /**
      * Access the index page for the teacher to see all students
      * @return Application|Factory|View
      */
@@ -86,7 +91,7 @@ class TeacherController extends BaseController
             $users = new User;
             $isValid =  $request->validate([
                 'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255'],
                 'password' => ['required', 'string', 'min:8'],
             ]);
             if($isValid){
@@ -99,14 +104,14 @@ class TeacherController extends BaseController
                 $data = $users->where('id',$request->teacher)->update($user);
 
             }
-
+            // Show Sweet Alert Notification
+            alert('Good Job', 'Teacher Updated Successfully', 'success');
         }
         catch (\Exception $exception){
-            dd($exception);
-            alert('Oops', 'Please try again', 'error');
+            //dd($exception);
+            alert('Invalid Changes', 'Some input seems invalid', 'error');
         }
-        // Show Sweet Alert Notification
-        alert('Good Job', 'Teacher Updated Successfully', 'success');
+     
         // Redirect Back
         return redirect()->back();
     }
@@ -153,6 +158,37 @@ class TeacherController extends BaseController
         alert('Good Job', 'Students Assigned Successfully', 'success');
         // Redirect Back
         return redirect()->route('subject.index');
+    }
+
+
+    public function updateEnableDisable(Request $request, User $users){
+        $id = $request->id;
+        $current = $users->where('id',$id)->first();
+        $current_status = $current->status;
+        if($current->role == 'User'){
+            if($current_status == "active"){
+                $current_status = "inactive";
+            }
+            else{
+                $current_status = "active";
+            }
+            $user = [
+                'status' => $current_status
+            ];
+            $data = $users->where('id',$id)->update($user);
+    
+            return [
+                'result' => 'success',
+                'id' => $id,
+                'status' => $current_status
+            ];
+        }
+        else{
+            return [
+                'result' => 'error'
+            ];
+        }
+        
     }
 
 

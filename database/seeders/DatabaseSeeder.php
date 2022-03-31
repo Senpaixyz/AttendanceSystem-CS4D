@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
                 'email' => 'test@gmail.com',
                 'email_verified_at' => Carbon::now(),
                 'password' => Hash::make('12345678'),
-                'role' => 'Admin'
+                'role' => 'Admin',
+                'status' => 'active'
             ]);
         }
         User::create([
@@ -29,7 +30,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'teacher@gmail.com',
             'email_verified_at' => Carbon::now(),
             'password' => Hash::make('12345678'),
-            'role' => 'User'
+            'role' => 'User',
+            'status' => 'inactive'
         ]);
         $this->call(SettingSeeder::class);
         // \App\Models\User::factory(10)->create();

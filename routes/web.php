@@ -40,7 +40,10 @@ Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 
 
     // Teacher Resources
     Route::resource('/teacher', 'TeacherController')->except('create', 'edit');
+    //Events Teachers
+    Route::post('/update-enable-disable','TeacherController@updateEnableDisable');
 
+    
     Route::get('/teacher/{teacher}/assign','TeacherController@assignSubjects')->name('teacher.assign-subject');
 
     // Go to assign students page for the class
@@ -62,13 +65,16 @@ Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 
     // Settings
     Route::get('/settings', 'SettingController@index')->name('settings.index');
     Route::post('/settings', 'SettingController@update')->name('settings.update');
+
+
+    
 });
 
 
-Route::group(['middleware' => 'role:User','namespace' => 'Manage', 'prefix' => 'user'], function () {
+Route::group(['middleware' => 'role:User','namespace' => 'Manage', 'prefix' => 'user','middleware'=>'status:active'], function () {
 
     Route::get('/teacher-dashboard', 'MainController@index')->name('teacher-dashboard');
-
+    //Route::get('/account-locked','MainController@locked_account')->name('account-locked');
     // Student Resources
     Route::resource('/student-list', 'StudentController')->except('create', 'edit');
     // Subject Resources
