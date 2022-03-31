@@ -3,7 +3,7 @@
 
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-![images_alt](https://github.com/Senpaixyz/attendance-system-cs4d/blob/master/public/Manage/img/cover-page.JPG?raw=true)
+![images_alt](https://github.com/Senpaixyz/AttendanceSystem-CS4D/blob/master/public/Manage/img/cover-page.JPG?raw=true)
 ### Groupmates
 - JHENO CERBITO
 - DANA MIRANDA
