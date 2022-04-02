@@ -1,5 +1,6 @@
 @extends('Manage.layouts.app')
 @section('content')
+    
     <!-- Main content -->
     <div class="main-content" id="panel">
     @include('Manage.includes.header')
@@ -46,8 +47,8 @@
                 <div class="col-12">
                     <div class="card bg-gradient-default radius shadow-2xl">
                         <!-- Card body -->
-                        <div class="card-body">
-                            
+                        <div class="card-body" style="padding:15px;">
+                            <h1 style="font-size: 18px;  color: white; margin: 0px;">SUMMARY</h1>
                         </div>
                     </div>
                     <div class="row">
@@ -101,6 +102,100 @@
                                             <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
                                                 <i class="fa fa-user-times" aria-hidden="true"></i>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card bg-gradient-default radius shadow-2xl">
+                        <!-- Card body -->
+                        <div class="card-body" style="padding:15px;">
+                            <h1 style="font-size: 18px;  color: white; margin: 0px;">CLASS SCHEDULE</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card bg-gradient-default radius shadow-2xl">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-white mb-0">CS2A - Object Oriented Programming</h5>
+                                            <span class="h2 font-weight-bold text-white mb-0"> TUESDAY 1:00 - 6:00PM</span>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card bg-gradient-default radius shadow-2xl">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-white mb-0">CS2C - Data Structures and Algorithm</h5>
+                                            <span class="h2 font-weight-bold text-white mb-0"> WEDNESDAY 8:00 - 1:00PM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card bg-gradient-default radius shadow-2xl">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-white mb-0">CS4D - Web System Technologies</h5>
+                                            <span class="h2 font-weight-bold text-white mb-0"> THURSDAY 10:30 - 12:30PM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card bg-gradient-default radius shadow-2xl">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-white mb-0">CS4E - Social Issues and Professional Practice</h5>
+                                            <span class="h2 font-weight-bold text-white mb-0"> FRIDAY 1:00 - 4:00PM</span>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card bg-gradient-default radius shadow-2xl">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-white mb-0">CS1D - Discrete Structure</h5>
+                                            <span class="h2 font-weight-bold text-white mb-0"> FRIDAY 7:00 - 12:30PM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card bg-gradient-default radius shadow-2xl">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-white mb-0">CS1E - Architecture & Organization</h5>
+                                            <span class="h2 font-weight-bold text-white mb-0"> SATURDAY 9:00 - 12:00PM </span>
                                         </div>
                                     </div>
                                 </div>
