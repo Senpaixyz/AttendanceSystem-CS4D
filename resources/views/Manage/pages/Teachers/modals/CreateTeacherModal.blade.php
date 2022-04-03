@@ -42,7 +42,7 @@
                                     <label class="form-control-label text-white" for="role">Role <span class="text-danger">*</span></label>
                                     <select id="role" class="form-control role radius"
                                            name="role">
-                                           <option value="Admin" selected>Head Teacher</option>
+                                           <option value="Admin" selected>Head Teacher(Super Admin)</option>
                                            <option value="User">Teacher</option>
                                     </select>
 

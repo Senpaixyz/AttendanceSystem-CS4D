@@ -27,4 +27,11 @@ class MainController extends BaseController
 
         return view('Manage.pages.Singles.dashboard', compact('subjects', 'students_count','user'));
     }
+
+    public function locked_account(){
+        $this->setPageTitle('Locked', 'locked');
+        $id = Auth::id();
+        $user = DB::table('users')->select('name','email','role')->where('id',$id)->get()->first();
+        return view('Manage.layouts.lock-account',compact('user'));
+    }
 }

@@ -37,6 +37,7 @@ class LoginController extends Controller
         }
         else if (Auth::user()->role === 'User') {
             return '/user/teacher-dashboard';
+            
         }
 
     }
