@@ -24,6 +24,16 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
+// dtr route
+Route::get('/manual-attendance',function(){
+    return view('Manage.public.manual-attendance');
+})->name('manual-attendance');
+Route::post('/fetchData',[App\Http\Controllers\DTRController::class, 'GetData'])->name('GetData');
+Route::post('/timeIn',[App\Http\Controllers\DTRController::class, 'GetTimeIn'])->name('GetTimeIn');
+Route::post('/timeOut',[App\Http\Controllers\DTRController::class, 'GetTimeOUt'])->name('GetTimeOut');
+
+
+
 Auth::routes(['register' =>true, 'reset' => false]);
 
 // Route::get('/home', function (){

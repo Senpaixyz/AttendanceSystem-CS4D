@@ -17,6 +17,8 @@ class CreateAttendancesTable extends Migration
             $table->id();
             $table->foreignId('subject_id')->constrained('subjects')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate(); // the teacher
+            $table->string('timeIn')->nullable();
+            $table->string('timeOut')->nullable();
             $table->date('date');
             $table->timestamps();
         });
