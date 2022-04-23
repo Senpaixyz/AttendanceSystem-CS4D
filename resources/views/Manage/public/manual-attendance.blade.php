@@ -7,11 +7,11 @@
         <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
             <div class="card-header bg-dark text-light">TIME IN</div>
             <div class="card-body">
-                <h2 class="card-title" id="timeIn_time" ></h2>
+                <h2 class="card-title" id="timeIn_time"></h2>
                 <h5 class="card-title" id="timeIn_day"></h5>
                 <p class="card-text">
                     <small>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.    
+                        You have successfully timein to your session, you may now proceed. Have a Good Day!   
                     </small>
                 </p>
                 <button class="btn btn-success w-100" id="time-in-button">Time In </button>
@@ -28,7 +28,7 @@
                 <h5 class="card-title" id="timeOut_day"></h5>
                 <p class="card-text">
                     <small>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.    
+                        You have been timeout from your session successfully, Goodbye! 
                     </small>
                 </p>
                 <button class="btn btn-secondary w-100" id="time-out-button">Timeout</button>
