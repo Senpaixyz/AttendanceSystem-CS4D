@@ -43,7 +43,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-6 ">
-          <img src="{{ asset('Manage/img/login-image2.png') }}" alt="Image" class="img-fluid ">
+          <img src="{{ asset('Manage/img/login.png') }}" alt="Image" class="img-fluid ">
         </div>
         <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-6 contents">
           <div class="row justify-content-center">
@@ -73,7 +73,7 @@
                
               </div>
               <div class="form-group last mb-4">
-                <label for="password" class="col-5 col-form-label">{{ __('Password') }}</label>
+                
 
                             <div class="col-7 p-0 m-0">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
