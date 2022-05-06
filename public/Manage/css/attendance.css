@@ -1,0 +1,53 @@
+body{
+    background-image: linear-gradient(to right, #e6e9ee, rgb(226, 225, 233));
+}
+#navbar{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar{
+    /* background-image: linear-gradient(to right, #a517ba, #e791f5); */
+    padding: 1px 5px;
+}
+.navbar-brand span{
+   color: #fff;
+   font-weight: 600;
+   font-size: 25px;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+.navbar-brand img{
+    width: 18px;
+    height: 18px;
+}
+.navbar-nav li{
+    padding-right: 10px;
+}
+.navbar-nav li a{
+    /* color: black !important; */
+    font-weight: 500;
+    float: right;
+    text-align: left;
+    transition: .5s cubic-bezier(1.075, 1.82, 1.165, 1);
+}
+.nav-link a:hover{
+    color: coral;
+}
+.fa-bars{
+    color: #fff;
+    font-size: 30px !important;
+}
+.nav-toggler{
+    outline: none !important;
+}
+.custome-section{
+    width: inherit;
+    padding: 30px;
+
+    @media screen and (max-width:991.98px){
+        flex-direction: column-reverse;
+    }
+}
+.card-body .card-title{
+    color: bisque;
+}
