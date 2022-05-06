@@ -1,0 +1,272 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.nav-brand a{
+    color: #fff;
+}
+.navbar-brand span{
+  color: #fff;
+  font-weight: 600;
+  font-size: 25px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+.navbar-brand img{
+   width: 18px;
+   height: 18px;
+}
+.about{
+    background-color: #0c0c0c;
+    height: 100vh;
+}
+.about h2{
+    color: #fff;
+    margin-left: 250px;
+    margin-top: 200px;
+    font-size: 50px;
+}
+.about p{
+    margin-left: 250px;
+    font-size: 15px;
+    width: 80%;
+    text-align: justify;
+    color:#fff;
+}
+.about a{
+    background-color: #fff;
+    width: 200px;
+    border-radius: 20px;
+    margin-left: 40px;
+    color: #003377;
+}
+
+.abt-us-logo img{
+    width: 650px;
+    height: 500px;
+    margin-top: 130px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/*.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 10px;
+  padding: 8px;
+}*/
+
+.card {
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.2);
+  width:23%;
+  margin:10px;
+  display: block;
+  margin-left:auto;
+  margin-right: auto;
+}
+.container {
+  padding: 2 16px;
+}
+.janine{
+  margin-bottom: 10px;
+}
+.dana{
+  margin-top: 45px;
+}
+.jheno{
+  margin-bottom: 38px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #121213;
+  color: rgb(252, 252, 252);
+}
+
+/*contact us button*/
+.ja-btn {
+  border: none;
+  outline: 0;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.ja-btn:hover {
+  background-color: #fff;
+  color: black;
+}
+/*questions*/
+.t1{
+  color: white;
+  background: none;
+  margin: 2px 2px 0px 0px;
+  padding:2px;
+  border-color: white;
+}
+.ques1 {
+  background-color:grey;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  padding: 2px;
+  border-color: rgb(255, 255, 255);
+}
+#text {
+  background-color: rgb(191, 191, 201);
+  white-space: nowrap;
+  margin:0;
+  padding:0;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+#close {
+  text-align: center;
+  background-color: rgb(10, 10, 15);
+  color:white;
+  font-size: 19px;
+}
+
+/*footer*/
+footer {
+  clear: both;
+  position: relative;
+  height: 200px;
+  margin-top: 250px;
+  margin-bottom: 5px;
+}
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 80px 0;
+}
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #000000;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #ffffff;
+  color:#000;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #000000;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.emailadd{
+    margin: 2px;
+    margin-bottom: 6px;
+    text-align: center;
+    display: block;
+    width: 530px;
+}
+.Emailtxt{
+  text-align: center;
+  font-weight: bold;
+  color: rgb(2, 2, 2);
+}
+.submit{
+  display: block;
+  width: 350px;
+  padding: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border: 2px;
+  margin-left: 85px;
+  margin-top: 5px;
+}
+.submit:hover{
+  background-color: rgb(204, 204, 204);
+}
+.writesome{
+  display: block;
+  text-align: center;
+  height:200px;
+  width: 530px;
+}
+/*footer end*/
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
