@@ -77,6 +77,8 @@ Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 
     Route::post('/settings', 'SettingController@update')->name('settings.update');
 
 
+    // Logs
+    Route::get('/dtr-logs','TeacherController@showGeneralDTRLogs')->name('teacher.general-dtr-logs');
     
 });
 
@@ -95,6 +97,8 @@ Route::group(['middleware' => 'role:User','namespace' => 'Manage', 'prefix' => '
     Route::put('set-attendance/attach/{attendance}/update', 'AttendanceController@updateAttendanceData')->name('set-attendance.student.update');
     // Attendance Resources
     Route::resource('set-attendance', 'AttendanceController');
+    // Logs
+    Route::get('/dtr-logs','TeacherController@showTeacherDTRLogs')->name('teacher.dtr-logs');
 });
 
 

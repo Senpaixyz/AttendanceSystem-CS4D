@@ -8,7 +8,7 @@
                 <div class="container-fluid">
                     <div class="header-body ">
                         <div class="row">
-                            <div class="col-6 mt-4 text-left text-light">
+                            <div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 mt-4 text-left text-light">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row">
@@ -57,6 +57,7 @@
                                         <h1 class="display-6 card-title   text-muted mb-0">
                                             Welcome {{ $user->role == 'Admin' ? 'Head Teacher' : 'Teacher' }}
                                         </h1>
+
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, 
                                             but the majority have suffered alteration in some form, by injected humour, 
@@ -68,6 +69,7 @@
                                               of over 200 Latin words, combined with a handful of model sentence structures, 
                                               to generate Lorem Ipsum which looks reasonable. 
                                         </p>
+                                        
                                     </div>
                                 </div>
                                
@@ -94,15 +96,26 @@
                                     </div>
                                 </div> --}}
                             </div>
-                            <div class="col-6">
+                            <div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12">
                                         <div class="container-fluid mt-4">
-                                            <div class="row">
+                                            <div class="btn-group w-100 card-toggle p-0 m-0 mb-3 bg-primary" 
+                                                style="border:2px solid rgba(0, 0, 0, 0.15);
+                                                        box-shadow: inset 0px 3px 20px rgba(0, 0, 0, 0.15);
+                                                        ">
+                                                <button  class="col-6 btn  attendance_dtr border-0 bg-gradient-default text-secondary"  id="attendance" style="font-size:1.2em;">
+                                                    <strong>Attendance</strong>
+                                                </button>
+                                                <button  class="col-6 btn  attendance_dtr border-0"   id="dtr" style="font-size: 1.2em;">
+                                                    <strong>DTR</strong>
+                                                </button>
+                                            </div>
+                                            <div class="row" id="attendance-div">
                                                 <div class="col col-lg-12">
                                                     <div class="card radius shadow-2xl mx-4 bg-gradient-default">
                                                         <div class="card-header bg-gradient-default">
                                                             <div class="row align-items-center">
                                                                 <div class="col-12 text-center " >
-                                                                    <h3 class="mb-0 text-white">Daily Attendance Form</h3>
+                                                                    <h3 class="mb-0 text-white">CONDUCT ATTENDANCE TODAY</h3>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -145,6 +158,47 @@
                                                                 </div>
 
                                                             </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="dtr-div" style="display:none;">
+                                                <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}"/>
+                                                <div class="col-12 justify-content-center px-5" id="timeIn-div">
+                                                    <div class="card text-white bg-gradient-default">
+                                                        <div class="card-header d-flex  justify-content-between bg-gradient-default text-light">
+                                                            <small>TIME IN</small>
+                                                            <i class="fa fa-bars align-self-end text-success dtr-toggle-btn" style="cursor:pointer" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h1 class="display-2 card-title text-light" id="timeIn_time"></h1>
+                                                            <h5 class="card-title text-light" id="timeIn_day"></h5>
+                                                            <p class="card-text">
+                                                                <small>
+                                                                    You have successfully timein to your session, you may now proceed. Have a Good Day!   
+                                                                </small>
+                                                            </p>
+                                                            <button class="btn btn-success w-100" id="time-in-button">Time In </button>
+                                                            <h5 class="card-title text-end text-light mt-3" id="timeIn_date"></h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 justify-content-center px-5" id="timeOut-div" style="display: none;">
+                                                    <div class="card text-white bg-gradient-default">
+                                                        <div class="card-header d-flex justify-content-between bg-gradient-default text-light">
+                                                            <small>TIME OUT</small>
+                                                            <i class="fa fa-bars align-self-end text-success dtr-toggle-btn" style="cursor:pointer" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h1 class="display-2 card-title text-light" id="timeOut_time"></h1>
+                                                            <h5 class="card-title text-light" id="timeOut_day"></h5>
+                                                            <p class="card-text">
+                                                                <small>
+                                                                    You have been timeout from your session successfully, Goodbye! 
+                                                                </small>
+                                                            </p>
+                                                            <button class="btn btn-secondary w-100" id="time-out-button">Timeout</button>
+                                                            <h5 class="card-title text-end text-light mt-3" id="timeOut_date"></h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -221,3 +275,26 @@
 
 
 @endsection
+@push('scripts')
+<script type="text/javascript" src="{{ asset('js/dtr.js')}}"></script>
+<script type="application/javascript">
+    $(document).ready(function(){
+        window.initialized_dtr_script();
+
+        $(".attendance_dtr").on('click',function(){
+            if($(this).attr('id') == 'attendance'){
+                $('#dtr').removeClass('bg-gradient-default text-secondary');
+                $('#attendance').addClass('bg-gradient-default text-secondary');
+                $("#dtr-div").fadeOut(200);
+                $("#attendance-div").fadeIn(200);
+            }
+            else if($(this).attr('id') == 'dtr'){
+                $('#attendance').removeClass('bg-gradient-default text-secondary');
+                $('#dtr').addClass('bg-gradient-default text-secondary');
+                $("#attendance-div").fadeOut(200);
+                $("#dtr-div").fadeIn(200);
+            }
+        });
+    });
+</script>
+@endpush

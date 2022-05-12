@@ -15,13 +15,14 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class TeacherController extends BaseController
 {
     public function __construct()
     {
         //assign the middleware to all the methods of the controller
-        $this->middleware('role:Admin');
+        // $this->middleware('role:Admin');
     }
         /**
      * Access the index page for the teacher to see all students
@@ -190,6 +191,44 @@ class TeacherController extends BaseController
         }
         
     }
+
+    public function showGeneralDTRLogs(Request $request){
+        $this->setPageTitle('Teachers', 'All Teachers DTR Logs');
+        $users_logs = DB::table('dtr')
+                            ->select(
+                                'users.name',
+                                'users.role',
+                                'dtr.timeIn_fulldate',
+                                'dtr.timeIn_hours',
+                                'dtr.timeOut_hours',
+                                'dtr.number_hours',
+                                'dtr.status AS dtr_status'
+                            )
+                            ->join('users','users.id','=','dtr.user_id')
+                            ->orderBy('dtr.timeIn', 'DESC')->get();
+        //dd($users_logs);
+        return view('Manage.pages.Logs.admin-dtr-logs', compact('users_logs'));
+    }
+
+    public function showTeacherDTRLogs(Request $request){
+        $this->setPageTitle('Teachers', 'Your DTR Logs');
+        $user_logs = DB::table('dtr')
+                            ->select(
+                                'users.name',
+                                'users.role',
+                                'dtr.timeIn_fulldate',
+                                'dtr.timeIn_hours',
+                                'dtr.timeOut_hours',
+                                'dtr.number_hours',
+                                'dtr.status AS dtr_status'
+                            )
+                            ->join('users','users.id','=','dtr.user_id')
+                            ->where('users.id',Auth::user()->id)
+                            ->orderBy('dtr.id', 'DESC')->get();
+        //dd($users_logs);
+        return view('Manage.pages.Logs.teacher-dtr-logs', compact('user_logs'));
+    }
+
 
 
 
