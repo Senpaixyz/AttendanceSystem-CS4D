@@ -82,12 +82,13 @@ class SubjectController extends BaseController
     {
         try {
             Subject::create($request->validated());
+            alert('Good Job', 'Course Created Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
         }
         // Show Sweet Alert Notification
-        alert('Good Job', 'Course Created Successfully', 'success');
+
         // Redirect Back
         return redirect()->back();
     }
@@ -101,12 +102,13 @@ class SubjectController extends BaseController
     {
         try {
             $subject->update($request->validated());
+            alert('Good Job', 'Course Updated Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
         }
         // Show Sweet Alert Notification
-        alert('Good Job', 'Course Updated Successfully', 'success');
+
         // Redirect Back
         return redirect()->back();
     }
@@ -119,12 +121,13 @@ class SubjectController extends BaseController
     {
         try {
             $subject->delete();
+            alert('Good Job', 'Course removed Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
         }
         // Show Sweet Alert Notification
-        alert('Good Job', 'Course removed Successfully', 'success');
+  
         // Redirect Back
         return redirect()->back();
     }

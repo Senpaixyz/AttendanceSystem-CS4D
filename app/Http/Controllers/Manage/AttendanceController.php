@@ -104,11 +104,12 @@ class AttendanceController extends BaseController
     {
         try {
             $attendance->delete();
+            alert('Good Job', 'Attendance removed successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
         }
-        alert('Good Job', 'Attendance removed successfully', 'success');
+ 
         return  back();
     }
 

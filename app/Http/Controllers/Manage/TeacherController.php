@@ -68,15 +68,15 @@ class TeacherController extends BaseController
                 User::create($users);
             }
 
-
+            alert('Good Job', 'Teacher Created Successfully', 'success');
  
         }
         catch (\Exception $exception){
-            alert('Oops', 'Please try again', 'error');
-            dd($exception);
+            alert('Oops', 'The email address is already in use, or the password is too short!', 'error');
+            // dd($exception);
         }
         // Show Sweet Alert Notification
-        alert('Good Job', 'Teacher Created Successfully', 'success');
+
         // Redirect Back
         return redirect()->back();
     }
@@ -110,7 +110,7 @@ class TeacherController extends BaseController
         }
         catch (\Exception $exception){
             //dd($exception);
-            alert('Invalid Changes', 'Some input seems invalid', 'error');
+            alert('Invalid Changes', 'The email address is already in use, or the password is too short!', 'error');
         }
      
         // Redirect Back

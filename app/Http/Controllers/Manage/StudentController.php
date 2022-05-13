@@ -42,12 +42,13 @@ class StudentController extends BaseController
     {
         try {
             Student::create($request->validated());
+            alert('Good Job', 'Student Created Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
         }
         // Show Sweet Alert Notification
-        alert('Good Job', 'Student Created Successfully', 'success');
+
         // Redirect Back
         return redirect()->back();
     }
@@ -61,12 +62,13 @@ class StudentController extends BaseController
     {
         try {
             $student->update($request->validated());
+            alert('Good Job', 'Student Updated Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
         }
         // Show Sweet Alert Notification
-        alert('Good Job', 'Student Updated Successfully', 'success');
+
         // Redirect Back
         return redirect()->back();
     }
@@ -79,12 +81,13 @@ class StudentController extends BaseController
     {
         try {
             $student->delete();
+            alert('Good Job', 'Student Removed Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
         }
         // Show Sweet Alert Notification
-        alert('Good Job', 'Student removed Successfully', 'success');
+
         // Redirect Back
         return redirect()->back();
     }
