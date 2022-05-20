@@ -40,9 +40,8 @@
     <div class="container">
         <div class="row custom-section align-items-center">
             <div class="col-lg-4">
-                <h2>School Attendance <br> System</h2>
-                <p> Absents leads to bad academic performance and well being. School attendance system monitors each student's arrival in school.
-                It allows teachers and administrators having a clear overview of classroom and individuals’ attendance rates anytime, anywhere.</p>
+                <h2>SMCL <br>Attendance  System</h2>
+                <p> As a final requirement in CS4D - Software Engineering, graduating BSCS students developed an attendance system that can be useful for both teachers and administrative officers in monitoring daily time-in and time-out records. </p>
                 <button type="button" class="btn btn-outline-primary">Get Started</button>
                 <a href="{{ route('manual-attendance') }}" class="btn btn-outline-danger">Student Time In</a>
             </div>
