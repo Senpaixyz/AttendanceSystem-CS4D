@@ -13,6 +13,19 @@
         <div class="header bg-primary">
             <div class="container-fluid">
                 <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            {{-- <h6 class="h2 text-white d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
+                                    <li class="breadcrumb-item"><i class="fas fa-book-open"></i></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('subject.index') }}">Subjects</a></li>
+                                    <li class="breadcrumb-item active"><a href="{{ route('subject.show',$subject) }}">{{ $subject->name }}</a></li>
+                                    <li class="breadcrumb-item active">Logs</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,9 +44,7 @@
                             <table class="table align-items-center table-flush datatable-buttons">
                                 <thead class="bg-darkgrey text-white">
                                 <tr>
-                                    <th  >Name</th>
-                                    <th  >Role</th>
-                                    <th  >Subject</th>
+                                    {{-- <th  >Name</th> --}}
                                     <th  >Date</th>
                                     <th  >Time In</th>
                                     <th  >Time Out</th>
@@ -42,17 +53,11 @@
                                 </tr>
                                 </thead>
                                 <tbody class="list text-white">
-                                @foreach ($users_logs as $user)
+                                @foreach ($user_logs as $user)
                                     <tr>
-                                        <td class="text-capitalize">
+                                        {{-- <td class="text-capitalize">
                                             {{ $user->name }}
-                                        </td>
-                                        <td class="text-md">
-                                            {{ $user->role == 'Admin' ? 'Head Teacher' : 'Teacher' }}
-                                        </td>
-                                        <td class="text-capitalize">
-                                            {{ $user->subject_name }}
-                                        </td>
+                                        </td> --}}
                                         <td class="text-capitalize">
                                             {{ $user->timeIn_fulldate }}
                                         </td>
