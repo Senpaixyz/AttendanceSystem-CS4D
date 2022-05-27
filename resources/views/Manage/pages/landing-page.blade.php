@@ -44,7 +44,7 @@
                 <p> Absents leads to bad academic performance and well being. School attendance system monitors each student's arrival in school.
                 It allows teachers and administrators having a clear overview of classroom and individuals’ attendance rates anytime, anywhere.</p>
                 <button type="button" class="btn btn-outline-primary">Get Started</button>
-                <a href="{{ route('manual-attendance') }}" class="btn btn-outline-danger">Student Time In</a>
+                {{-- <a href="{{ route('manual-attendance') }}" class="btn btn-outline-danger">Student Time In</a> --}}
             </div>
             <div class="col-lg-8">
                 <img src="Manage/img/time.png" class="img-fluid" alt="School Attendance Banner">
