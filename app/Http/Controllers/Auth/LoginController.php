@@ -32,13 +32,19 @@ class LoginController extends Controller
      */
     protected function redirectTo(): string
     {
-        if (Auth::user()->role === 'Admin') {
-            return '/admin/dashboard';
+        if(Auth::check()){
+            if (Auth::user()->role === 'Admin') {
+                return '/admin/dashboard';
+            }
+            else if (Auth::user()->role === 'User') {
+                return '/user/teacher-dashboard';
+            }
         }
-        else if (Auth::user()->role === 'User') {
-            return '/user/teacher-dashboard';
-            
+        else{
+            return '/login';
         }
+ 
+
 
     }
 

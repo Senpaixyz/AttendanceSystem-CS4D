@@ -202,9 +202,11 @@ class TeacherController extends BaseController
                                 'dtr.timeIn_hours',
                                 'dtr.timeOut_hours',
                                 'dtr.number_hours',
-                                'dtr.status AS dtr_status'
+                                'dtr.status AS dtr_status',
+                                'subjects.name as subject_name'
                             )
                             ->join('users','users.id','=','dtr.user_id')
+                            ->join('subjects','subjects.id','=','dtr.subject_id')
                             ->orderBy('dtr.timeIn', 'DESC')->get();
         //dd($users_logs);
         return view('Manage.pages.Logs.admin-dtr-logs', compact('users_logs'));
@@ -220,13 +222,37 @@ class TeacherController extends BaseController
                                 'dtr.timeIn_hours',
                                 'dtr.timeOut_hours',
                                 'dtr.number_hours',
-                                'dtr.status AS dtr_status'
+                                'dtr.status AS dtr_status',
+                                'subjects.name as subject_name'
                             )
                             ->join('users','users.id','=','dtr.user_id')
+                            ->join('subjects','subjects.id','=','dtr.subject_id')
                             ->where('users.id',Auth::user()->id)
                             ->orderBy('dtr.id', 'DESC')->get();
         //dd($users_logs);
         return view('Manage.pages.Logs.teacher-dtr-logs', compact('user_logs'));
+    }
+
+    public function showTeacherSubjectsDTRLogs(Request $request){
+
+        $subject = Subject::withCount('students')->with('teacher')->first();
+        $this->setPageTitle('Teachers', 'Your '. $subject->name .' DTR Logs');
+        $user_logs = DB::table('dtr')
+                            ->select(
+                                'users.name',
+                                'users.role',
+                                'dtr.timeIn_fulldate',
+                                'dtr.timeIn_hours',
+                                'dtr.timeOut_hours',
+                                'dtr.number_hours',
+                                'dtr.status AS dtr_status'
+                            )
+                            ->join('users','users.id','=','dtr.user_id')
+                            ->where('users.id',Auth::user()->id)
+                            ->where('dtr.subject_id',$subject->id)
+                            ->orderBy('dtr.id', 'DESC')->get();
+        //dd($users_logs);
+        return view('Manage.pages.Logs.subject-attendance', compact('user_logs','subject'));
     }
 
 

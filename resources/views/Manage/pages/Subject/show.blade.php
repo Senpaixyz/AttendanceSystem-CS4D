@@ -5,12 +5,12 @@
     @include('Manage.includes.header')
     <!-- Header -->
         <!-- Header -->
-        <div class="header bg-primary pb-6">
+        <div class="header bg-primary">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
-                            <h6 class="h2 text-white d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6>
+                            {{-- <h6 class="h2 text-white d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
                             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
                                     <li class="breadcrumb-item"><i class="fas fa-book-open"></i></li>
@@ -24,20 +24,23 @@
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <div class="card">
-                        <div class="card-body text-center bg-white-100 radius shadow-2xl">
-                            <h2 class="mt-4">{{ $subject->name }}</h2>
-                            <p class="mb-0">{{ $subject->description }}</p>
-                            <p class="text-bold"> {{ $subject->students->count() }} <i class="fas fa-users-class text-blue"></i> </p>
+                        <div class="card-body text-center bg-gradient-default  radius shadow-2xl">
+                            <h1 class="mt-4 text-white">{{ $subject->name }}</h1>
+                            <input type="hidden" value="{{ $subject->start_time_in }}" id="timeIn_data"/>
+                            <input type="hidden" value="{{ $subject->start_time_out }}" id="timeOut_data"/>
+                            <p class="mb-0 text-white ">{{ date("g:i a", strtotime($subject->start_time_in)) }} - {{  date("g:i a", strtotime($subject->start_time_out)) }}</p>
+
+                            <p class="text-bold text-white ">  This class has <b>{{ $subject->students->count() }}</b> student/s. </p>
                             <hr>
-                            <div class="text-left">
-                                <h2>List of Students</h2>
+                            <div class="text-left text-white ">
+                                <h2 class="text-white ">List of all Students</h2>
                                 <div class="table-responsive">
                                     <table class="table align-items-center table-flush datatable-basic">
-                                        <thead class="thead-light">
+                                        <thead class="bg-gradient-default text-light">
                                         <tr>
                                             <th scope="col" class="sort" data-sort="name">Name</th>
                                             <th scope="col" class="sort" data-sort="email">Email</th>
@@ -45,7 +48,7 @@
                                             <th scope="col" class="sort" data-sort="action">Action</th>
                                         </tr>
                                         </thead>
-                                        <tbody class="list">
+                                        <tbody class="list text-light">
                                         @foreach ($subject->students as $student)
                                             <tr>
                                                 <td class="text-capitalize">
@@ -75,7 +78,73 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}"/>
+                        <input type="hidden" name="subject_id" id="subject_id" value="{{  $subject->id }}"/>
+                        <div class="col-12 justify-content-center px-5" id="timeIn-div">
+                            <div class="card text-white bg-gradient-default">
+                                <div class="card-header d-flex  justify-content-between bg-gradient-default text-light">
+                                    <small>TIME IN</small>
+                                    <i class="fa fa-bars align-self-end text-success dtr-toggle-btn" style="cursor:pointer" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h1 class="display-2 card-title text-light" id="timeIn_time"></h1>
+                                    <h5 class="card-title text-light" id="timeIn_day"></h5>
+                                    <p class="card-text">
+                                        <small id="time-in-message">
+                                            You have successfully timein to your session, you may now proceed. Have a Good Day!   
+                                        </small>
+                                    </p>
+                                    <button class="btn btn-success w-100" id="time-in-button">Time In </button>
+                                    <h5 class="card-title text-end text-light mt-3" id="timeIn_date"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 justify-content-center px-5" id="timeOut-div" style="display: none;">
+                            <div class="card text-white bg-gradient-default">
+                                <div class="card-header d-flex justify-content-between bg-gradient-default text-light">
+                                    <small>TIME OUT</small>
+                                    <i class="fa fa-bars align-self-end text-success dtr-toggle-btn" style="cursor:pointer" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h1 class="display-2 card-title text-light" id="timeOut_time"></h1>
+                                    <h5 class="card-title text-light" id="timeOut_day"></h5>
+                                    <p class="card-text">
+                                        <small>
+                                            You have been timeout from your session successfully, Goodbye! 
+                                        </small>
+                                    </p>
+                                    <button class="btn btn-secondary w-100" id="time-out-button">Timeout</button>
+                                    <h5 class="card-title text-end text-light mt-3" id="timeOut_date"></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @if(Auth::user()->role == 'Admin')
+                        <div class="col-12 justify-content-center px-5" id="timeIn-div">
+                            <div class="card text-white bg-gradient-default">
+                                <div class="card-header  bg-gradient-default text-light text-center">
+                                    <a href="{{ route('subject.dtr.admin-logs', $subject)  }}" class="text-light font-weight-bold"> <i class="fa fa-sign-in" aria-hidden="true"></i> View Attedance Logs</a>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        @elseif(Auth::user()->role == 'User')
+                            <a href="{{ route('subject.dtr.teacher-logs', $subject)  }}">TEST</a>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 @endsection
+@push('scripts')
+<script type="text/javascript" src="{{ asset('js/dtr.js')}}"></script>
+<script type="application/javascript">
+    $(document).ready(function(){
+        window.initialized_dtr_script();
+    });
+</script>
+@endpush

@@ -1,6 +1,6 @@
 /****************/
 body{
-    background-color: #090909 !important;
+    background-color: #FFFFFF !important;
 }
 .bg-darkgrey{
     background-color: #090909 !important;
@@ -14,6 +14,34 @@ body{
 .bg-gray{
     background-color: #272828 !important;
 }
+.bg-white{
+    background-color: #FFFFFF !important;
+}
 .text-lightviolet{
     color: #50347A !important;
+}
+
+/* SMCL BLUE */
+.text-smcl-blue{
+    color:  #18224D !important;
+}
+.bg-smcl-blue{
+    background-color:  #18224D !important;
+}
+
+/* SMCL RED */
+.text-smcl-red{
+    color:  #890909 !important;
+}
+.bg-smcl-red{
+    background-color:  #890909 !important;
+}
+
+/* SMCL LIGHT BLUE */
+.text-light-smcl-blue{
+    color:  #C7E1FF !important;
+}
+
+.bg-light-smcl-blue{
+    background-color:  #C7E1FF !important;
 }

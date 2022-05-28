@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg bg-gradient-default  py-3">
             <div class="container ">
                 <a class="navbar-brand text-white" href="{{ route('home') }}">
-                    <span>Attendance System</span>
+                    <span> <b> Attendance System </b></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars text-light"></i>
@@ -98,7 +98,7 @@
               <div class="form-group row mb-0">
                             <div class="col-12 d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary btn-block mx-3 border-0">
-                                    {{ __('Login') }}
+                                    {{ __('LOG IN') }}
                                 </button>
 
                                 @if (Route::has('password.request'))

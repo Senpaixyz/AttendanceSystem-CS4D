@@ -30,6 +30,29 @@ let GLOBAL_TIMEIN = "";
 let GLOBAL_TIMEIN_TIME = "";
 let GLOBAL_TIMEIN_DAY = "";
 let GLOBAL_TIMEIN_FULLDATE = "";
+
+const TIME_IN_DIFFERENCE = 30;
+
+const SUBJECT_TIME_IN_HOURS = $("#timeIn_data").val().split(':')[0];
+const SUBJECT_TIME_IN_MIN = $("#timeIn_data").val().split(':')[1];
+
+const SUBJECT_TIME_IN_DATE = new Date();
+
+
+SUBJECT_TIME_IN_DATE.setHours(SUBJECT_TIME_IN_HOURS);
+SUBJECT_TIME_IN_DATE.setMinutes(SUBJECT_TIME_IN_MIN);
+
+
+const SUBJECT_TIME_OUT_HOURS = $("#timeOut_data").val().split(':')[0];
+const SUBJECT_TIME_OUT_MIN = $("#timeOut_data").val().split(':')[1];
+
+const SUBJECT_TIME_OUT_DATE = new Date();
+
+
+SUBJECT_TIME_OUT_DATE.setHours(SUBJECT_TIME_OUT_HOURS);
+SUBJECT_TIME_OUT_DATE.setMinutes(SUBJECT_TIME_OUT_MIN);
+
+
 function getCurrentTimeIn() {
     let currentTimeDate = new Date();
 
@@ -37,9 +60,25 @@ function getCurrentTimeIn() {
     var hours   =  currentTimeDate.getHours();
 
     var minutes =  currentTimeDate.getMinutes();
+
+    var date_minutes = moment(SUBJECT_TIME_IN_DATE).subtract(TIME_IN_DIFFERENCE, 'minutes').toDate();
+
+    // time range of time in
+    if(currentTimeDate >= date_minutes && currentTimeDate <= SUBJECT_TIME_IN_DATE){
+        $("#time-in-button").show();
+        $("#time-in-message").html("The Time In button appears 30 minutes after the specified time.");
+        // $("#time-out-button").show();
+    }
+    else{
+        $("#time-in-button").hide();
+        $("#time-in-message").html(`The time in button will open 30 minutes before the scheduled time in.`);
+        // $("#time-out-button").show();
+    }
+
+
     minutes = minutes < 10 ? '0'+minutes : minutes;
 
-     var AMPM = hours >= 12 ? 'PM' : 'AM';
+    var AMPM = hours >= 12 ? 'PM' : 'AM';
 
     if(hours === 12){
         hours=12;
@@ -51,6 +90,8 @@ function getCurrentTimeIn() {
     }
 
     var currentTime = `${hours}:${minutes}${AMPM}`;
+
+
     var currentDay = weekday[currentTimeDate.getDay()];
 
     var currentDate  = currentTimeDate.getDate();
@@ -175,6 +216,7 @@ window.initialized_dtr_script = function(){
     $("#time-in-button").on("click",function(){
         let formData = new FormData();
         formData.append('user_id',$("#user_id").val());
+        formData.append('subject_id',$("#subject_id").val());
         formData.append('timeIn',GLOBAL_TIMEIN_TIMEDATE);
         formData.append('timeIn_time',$("#timeIn_time").text());
         formData.append('timeIn_day',$("#timeIn_day").text());
@@ -233,6 +275,7 @@ window.initialized_dtr_script = function(){
     $("#time-out-button").on("click",function(){
         let formData = new FormData();
         formData.append('user_id',$("#user_id").val());
+        formData.append('subject_id',$("#subject_id").val());
         formData.append('timeIn',GLOBAL_TIMEIN);
         formData.append('timeOut',GLOBAL_TIMEOUT_TIMEDATE);
         formData.append('timeOut_time',$("#timeOut_time").text());

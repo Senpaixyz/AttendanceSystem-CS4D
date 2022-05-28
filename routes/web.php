@@ -79,7 +79,8 @@ Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 
 
     // Logs
     Route::get('/dtr-logs','TeacherController@showGeneralDTRLogs')->name('teacher.general-dtr-logs');
-    
+    Route::get('/all-subjects-logs','TeacherController@showTeacherDTRLogs')->name('teacher.all-subjects-logs');
+    Route::get('/subject/{subject}/admin-logs','TeacherController@showTeacherSubjectsDTRLogs')->name('subject.dtr.admin-logs');
 });
 
 
@@ -99,6 +100,7 @@ Route::group(['middleware' => 'role:User','namespace' => 'Manage', 'prefix' => '
     Route::resource('set-attendance', 'AttendanceController');
     // Logs
     Route::get('/dtr-logs','TeacherController@showTeacherDTRLogs')->name('teacher.dtr-logs');
+    Route::get('/subject/{subject}/teacher-logs','TeacherController@showTeacherSubjectsDTRLogs')->name('subject.dtr.teacher-logs');
 });
 
 

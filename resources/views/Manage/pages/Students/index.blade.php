@@ -4,7 +4,7 @@
     <div class="main-content" id="panel">
     @include('Manage.includes.header')
     <!-- Header -->
-        <div class="header bg-darkgrey">
+        <div class="header bg-white">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-lg-6 col-5 text-right">
                             @if(Auth::user()->role == 'Admin')
-                            <button class="btn btn-sm btn-neutral"  data-toggle="modal" data-target="#createStudent">Create new Student</button>
+                            <button class="btn btn-sm btn-neutral bg-smcl-blue text-white"  data-toggle="modal" data-target="#createStudent">Create new Student</button>
                             <!-- Create Student Modal -->
                             @include('Manage.pages.Students.modals.CreateStudentModal')
                             <!--/ Create Student Modal -->
@@ -24,19 +24,19 @@
             </div>
         </div>
 
-        <div class="container-fluid mt-4 text-light">
+        <div class="container-fluid mt-4 text-smcl-blue">
             <div class="row">
                 <div class="col-12">
                     <!-- Table -->
-                    <div class=" bg-darkgrey">
+                    <div class=" bg-white">
                         <!-- Card header -->
-                        <div class="card-header border-0 bg-darkgrey ">
-                            <h3 class="mb-0 text-light">{{ $subTitle }}</h3>
+                        <div class="card-header border-0 bg-white ">
+                            <h3 class="mb-0 text-smcl-blue">{{ $subTitle }}</h3>
                         </div>
                         <!-- Light table -->
                         <div class="table-responsive ">
                             <table class="table align-items-center table-flush datatable-buttons">
-                                <thead class="bg-darkgrey text-light">
+                                <thead class="bg-white text-smcl-blue">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="employee">Name</th>
                                     <th scope="col" class="sort" data-sort="employee">Email</th>
@@ -46,7 +46,7 @@
                                     @endif
                                 </tr>
                                 </thead>
-                                <tbody class="list text-light">
+                                <tbody class="list text-smcl-blue">
                                 @foreach ($students as $student)
                                     <tr>
                                         <td class="text-capitalize">
