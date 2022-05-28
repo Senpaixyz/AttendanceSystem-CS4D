@@ -17,3 +17,28 @@ body{
 .text-lightviolet{
     color: #50347A !important;
 }
+
+/* SMCL BLUE */
+.text-smcl-blue{
+    color:  #18224D !important;
+}
+.bg-smcl-blue{
+    background-color:  #18224D !important;
+}
+
+/* SMCL RED */
+.text-smcl-red{
+    color:  #890909 !important;
+}
+.bg-smcl-red{
+    background-color:  #890909 !important;
+}
+
+/* SMCL LIGHT BLUE */
+.text-light-smcl-blue{
+    color:  #C7E1FF !important;
+}
+
+.bg-light-smcl-blue{
+    background-color:  #C7E1FF !important;
+}
