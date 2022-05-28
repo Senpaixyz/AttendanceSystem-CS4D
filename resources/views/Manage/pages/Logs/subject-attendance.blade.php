@@ -10,12 +10,12 @@
                 pointer-events: none;
             }
         </style>
-        <div class="header bg-primary">
+        <div class="header bg-white">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
-                            {{-- <h6 class="h2 text-white d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
+                            {{-- <h6 class="h2 text-smcl-blue d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
                             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
                                     <li class="breadcrumb-item"><i class="fas fa-book-open"></i></li>
@@ -34,15 +34,15 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Table -->
-                    <div class="bg-darkgrey text-white">
+                    <div class="bg-white text-smcl-blue">
                         <!-- Card header -->
-                        <div class="card-header border-0 bg-darkgrey">
-                            <h3 class="mb-0 text-white">{{ $subTitle }}</h3>
+                        <div class="card-header border-0 bg-white">
+                            <h3 class="mb-0 text-smcl-blue">{{ $subTitle }}</h3>
                         </div>
                         <!-- Light table -->
                         <div class="table-responsive">
                             <table class="table align-items-center table-flush datatable-buttons">
-                                <thead class="bg-darkgrey text-white">
+                                <thead class="bg-white text-smcl-blue">
                                 <tr>
                                     {{-- <th  >Name</th> --}}
                                     <th  >Date</th>
@@ -52,7 +52,7 @@
                                     <th  >Status</th>
                                 </tr>
                                 </thead>
-                                <tbody class="list text-white">
+                                <tbody class="list text-smcl-blue">
                                 @foreach ($user_logs as $user)
                                     <tr>
                                         {{-- <td class="text-capitalize">

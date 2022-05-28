@@ -5,12 +5,12 @@
     @include('Manage.includes.header')
     <!-- Header -->
         <!-- Header -->
-        <div class="header bg-primary">
+        <div class="header bg-white">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
-                            {{-- <h6 class="h2 text-white d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
+                            {{-- <h6 class="h2 text-smcl-blue d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
                             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
                                     <li class="breadcrumb-item"><i class="fas fa-book-open"></i></li>
@@ -28,19 +28,19 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-body text-center bg-gradient-default  radius shadow-2xl">
-                            <h1 class="mt-4 text-white">{{ $subject->name }}</h1>
+                        <div class="card-body text-center bg-white  radius shadow-2xl">
+                            <h1 class="mt-4 text-smcl-blue">{{ $subject->name }}</h1>
                             <input type="hidden" value="{{ $subject->start_time_in }}" id="timeIn_data"/>
                             <input type="hidden" value="{{ $subject->start_time_out }}" id="timeOut_data"/>
-                            <p class="mb-0 text-white ">{{ date("g:i a", strtotime($subject->start_time_in)) }} - {{  date("g:i a", strtotime($subject->start_time_out)) }}</p>
+                            <p class="mb-0 text-smcl-blue ">{{ date("g:i a", strtotime($subject->start_time_in)) }} - {{  date("g:i a", strtotime($subject->start_time_out)) }}</p>
 
-                            <p class="text-bold text-white ">  This class has <b>{{ $subject->students->count() }}</b> student/s. </p>
+                            <p class="text-bold text-smcl-blue ">  This class has <b>{{ $subject->students->count() }}</b> student/s. </p>
                             <hr>
-                            <div class="text-left text-white ">
-                                <h2 class="text-white ">List of all Students</h2>
+                            <div class="text-left text-smcl-blue ">
+                                <h2 class="text-smcl-blue ">List of all Students</h2>
                                 <div class="table-responsive">
                                     <table class="table align-items-center table-flush datatable-basic">
-                                        <thead class="bg-gradient-default text-light">
+                                        <thead class="bg-white text-smcl-blue">
                                         <tr>
                                             <th scope="col" class="sort" data-sort="name">Name</th>
                                             <th scope="col" class="sort" data-sort="email">Email</th>
@@ -48,7 +48,7 @@
                                             <th scope="col" class="sort" data-sort="action">Action</th>
                                         </tr>
                                         </thead>
-                                        <tbody class="list text-light">
+                                        <tbody class="list text-smcl-blue">
                                         @foreach ($subject->students as $student)
                                             <tr>
                                                 <td class="text-capitalize">

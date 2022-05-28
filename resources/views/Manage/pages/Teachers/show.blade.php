@@ -6,12 +6,12 @@
     @include('Manage.includes.header')
     <!-- Header -->
         <!-- Header -->
-        <div class="header bg-primary pb-6">
+        <div class="header bg-white pb-6">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
-                            <h6 class="h2 text-white d-inline-block mb-0">{{ $pageTitle }}</h6>
+                            <h6 class="h2 text-smcl-blue d-inline-block mb-0">{{ $pageTitle }}</h6>
                             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
                                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
@@ -35,9 +35,9 @@
                             <img src="{{ asset(Config::get('settings.site_logo')) }}" onerror="this.onerror=null;this.src='https://picsum.photos/200';"
                                  class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
                                  style="width: 140px;" alt="">
-                            <h1 class="mt-4 text-white">{{ $current_user->name }}</h1>
+                            <h1 class="mt-4 text-smcl-red">{{ $current_user->name }}</h1>
                             <blockquote class="blockquote mb-0">
-                                <p class="mb-0 text-light">{{ $current_user->email }}</p>
+                                <p class="mb-0 text-smcl-blue">{{ $current_user->email }}</p>
                                 <p class="mb-0 text-bold"><a class="text-light " href="tel:{{ $current_user->phone }}">{{ $current_user->phone }}</a> </p>
                             </blockquote>
                         </div>

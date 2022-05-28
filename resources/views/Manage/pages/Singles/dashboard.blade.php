@@ -4,11 +4,11 @@
     <div class="main-content " id="panel">
     @include('Manage.includes.header')
         <!-- Header -->
-        <div class="header bg-primary pb-6">
+        <div class="header bg-white pb-6">
                 <div class="container-fluid">
                     <div class="header-body ">
                         <div class="row">
-                            <div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 mt-4 text-left text-light">
+                            <div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 mt-4 text-left text-smcl-blue">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row">
@@ -143,7 +143,7 @@
 
                                                                 <div class="row mx-3">
                                                                     {{-- type="submit" --}}
-                                                                    <button  class="btn bg-gradient-red  text-light btn-lg btn-block radius">Submit</button>
+                                                                    <button  class="btn bg-smcl-red  text-light btn-lg btn-block radius">Submit</button>
                                                                 </div>
 
                                                             </form>
