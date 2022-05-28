@@ -35,6 +35,7 @@ class DTRController extends Controller
     }
     function GetTimeIn(Request $request){
         $user_id = $request->user_id;
+        $subject_id = $request->subject_id;
         $timeIn = $request->timeIn;
         $timeIn_time = $request->timeIn_time;
         $timeIn_day = $request->timeIn_day;
@@ -42,6 +43,7 @@ class DTRController extends Controller
         $status = "timeIn";
         $affected = DB::table('dtr')->insert([
             'user_id' => $user_id,
+            'subject_id'    => $subject_id,
             'timeIn' => $timeIn,
             'timeIn_hours' => $timeIn_time,
             'timeIn_day' => $timeIn_day,

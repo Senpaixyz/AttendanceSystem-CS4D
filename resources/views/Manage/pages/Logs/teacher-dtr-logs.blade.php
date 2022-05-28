@@ -31,6 +31,7 @@
                             <table class="table align-items-center table-flush datatable-buttons">
                                 <thead class="bg-darkgrey text-white">
                                 <tr>
+                                    <th  >Subject</th>
                                     <th  >Date</th>
                                     <th  >Time In</th>
                                     <th  >Time Out</th>
@@ -41,6 +42,9 @@
                                 <tbody class="list text-white">
                                 @foreach ($user_logs as $user)
                                     <tr>
+                                        <td class="text-capitalize">
+                                            {{ $user->subject_name }}
+                                        </td>
                                         <td class="text-capitalize">
                                             {{ $user->timeIn_fulldate }}
                                         </td>

@@ -43,7 +43,7 @@
                 <h2>SMCL <br>Attendance  System</h2>
                 <p> As a final requirement in CS4D - Software Engineering, graduating BSCS students developed an attendance system that can be useful for both teachers and administrative officers in monitoring daily time-in and time-out records. </p>
                 <button type="button" class="btn btn-outline-primary">Get Started</button>
-                <a href="{{ route('manual-attendance') }}" class="btn btn-outline-danger">Student Time In</a>
+                {{-- <a href="{{ route('manual-attendance') }}" class="btn btn-outline-danger">Student Time In</a> --}}
             </div>
             <div class="col-lg-8">
                 <img src="Manage/img/time.png" class="img-fluid" alt="School Attendance Banner">

@@ -46,10 +46,16 @@
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('admin/dtr-logs*')) ? 'active' : '' }}" href="{{ route('teacher.general-dtr-logs') }}">
                                 <i class="fa fa-database text-lightviolet"></i>
-                                <span class="nav-link-text">DTR Logs</span>
+                                <span class="nav-link-text">General Logs</span>
                             </a>
                         </li>
-                        {{-- <!-- Add Courses -->
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/all-subjects-logs*')) ? 'active' : '' }}" href="{{ route('teacher.all-subjects-logs') }}">
+                                <i class="fa fa-database text-lightviolet"></i>
+                                <span class="nav-link-text">All Subjects Logs</span>
+                            </a>
+                        </li>
+                        <!-- Add Courses -->
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('admin/subject*')) ? 'active' : '' }}" href="{{ route('subject.index') }}">
                                 <i class="fas fa-book-open text-lightviolet"></i>
@@ -58,13 +64,13 @@
                         </li>
                         <!-- End Courses -->
                         <!-- Add Attendance -->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link {{ (request()->is('admin/attendance*')) ? 'active' : '' }}" href="{{ route('attendance.index') }}">
                                 <i class="fas fa-calendar-alt text-lightviolet"></i>
                                 <span class="nav-link-text">Attendance</span>
                             </a>
-                        </li>
- --}}
+                        </li> --}}
+
 
 
 
@@ -93,7 +99,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('user/dtr-logs*')) ? 'active' : '' }}" href="{{ route('teacher.dtr-logs') }}">
                                 <i class="fa fa-database text-lightviolet"></i>
-                                <span class="nav-link-text">DTR Logs</span>
+                                <span class="nav-link-text">All Subjects Logs</span>
                             </a>
                         </li>
                          <!-- Add Courses -->
