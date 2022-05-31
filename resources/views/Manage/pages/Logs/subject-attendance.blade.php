@@ -13,6 +13,19 @@
         <div class="header bg-white">
             <div class="container-fluid">
                 <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            {{-- <h6 class="h2 text-smcl-blue d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
+                                    <li class="breadcrumb-item"><i class="fas fa-book-open"></i></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('subject.index') }}">Subjects</a></li>
+                                    <li class="breadcrumb-item active"><a href="{{ route('subject.show',$subject) }}">{{ $subject->name }}</a></li>
+                                    <li class="breadcrumb-item active">Logs</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,7 +44,7 @@
                             <table class="table align-items-center table-flush datatable-buttons">
                                 <thead class="bg-white text-smcl-blue">
                                 <tr>
-                                    <th  >Subject</th>
+                                    {{-- <th  >Name</th> --}}
                                     <th  >Date</th>
                                     <th  >Time In</th>
                                     <th  >Time Out</th>
@@ -42,9 +55,9 @@
                                 <tbody class="list text-smcl-blue">
                                 @foreach ($user_logs as $user)
                                     <tr>
-                                        <td class="text-capitalize">
-                                            {{ $user->subject_name }}
-                                        </td>
+                                        {{-- <td class="text-capitalize">
+                                            {{ $user->name }}
+                                        </td> --}}
                                         <td class="text-capitalize">
                                             {{ $user->timeIn_fulldate }}
                                         </td>

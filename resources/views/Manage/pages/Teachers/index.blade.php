@@ -10,7 +10,7 @@
                 pointer-events: none;
             }
         </style>
-        <div class="header bg-primary">
+        <div class="header bg-white">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
@@ -18,7 +18,7 @@
     
                         </div>
                         <div class="col-lg-6 col-5 text-right">
-                            <button class="btn btn-sm btn-neutral"  data-toggle="modal" data-target="#createStudent">Create New User</button>
+                            <button class="btn btn-sm btn-neutral bg-smcl-blue text-white"  data-toggle="modal" data-target="#createStudent">Create New User</button>
                             <!-- Create Student Modal -->
                             @include('Manage.pages.Teachers.modals.CreateTeacherModal')
                             <!--/ Create Student Modal -->
@@ -32,15 +32,15 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Table -->
-                    <div class="bg-darkgrey text-white">
+                    <div class="bg-white text-smcl-blue">
                         <!-- Card header -->
-                        <div class="card-header border-0 bg-darkgrey">
-                            <h3 class="mb-0 text-white">{{ $subTitle }}</h3>
+                        <div class="card-header border-0 bg-white">
+                            <h3 class="mb-0 text-smcl-blue">{{ $subTitle }}</h3>
                         </div>
                         <!-- Light table -->
                         <div class="table-responsive">
                             <table class="table align-items-center table-flush datatable-buttons">
-                                <thead class="bg-darkgrey text-white">
+                                <thead class="bg-white text-smcl-blue">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="employee">Name</th>
                                     <th scope="col" class="sort" data-sort="employee">Email</th>
@@ -48,7 +48,7 @@
                                     <th scope="col" class="sort" data-sort="action">Action</th>
                                 </tr>
                                 </thead>
-                                <tbody class="list text-white">
+                                <tbody class="list text-smcl-blue">
                                 @foreach ($users as $user)
                                     <tr id="set-text-danger-{{ $user->id }}" class="{{ $user->status == "active" ? '' : 'text-danger' }}">
                                         <td class="text-capitalize">
@@ -87,7 +87,7 @@
                                            
                                             @if($user->role == 'User')
                                             |
-                                                <button  id="user-{{ $user->id }}" class="update-enable-disable btn btn-sm  text-white m-0 ml-1 radius 
+                                                <button  id="user-{{ $user->id }}" class="update-enable-disable btn btn-sm  text-smcl-blue m-0 ml-1 radius 
                                                     {{ $user->status == "active" ? 'bg-green' : 'bg-danger' }}" title="User Status">
                                                     @if($user->status == "active")
                                                         <i class="fa fa-unlock" aria-hidden="true"></i> 

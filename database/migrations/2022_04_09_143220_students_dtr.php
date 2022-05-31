@@ -16,6 +16,7 @@ class StudentsDtr extends Migration
         Schema::create('dtr', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id')->nullable();
+            $table->string('subject_id')->nullable();
             $table->string('timeIn')->nullable();
             $table->string('timeIn_hours')->nullable();
             $table->string('timeIn_day')->nullable();
