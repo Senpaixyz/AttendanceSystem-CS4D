@@ -25,7 +25,7 @@ class AttendanceController extends BaseController
     public function index(){
         $this->setPageTitle("Attendances" , 'All Attendances');
         $attendances = Attendance::with(['subject', 'teacher'])->WhereSubject(request()->get('subject_filter'))->WhereDateIs(request()->get('date_filter'))->withCount('students')->get();
-        $subjects = Subject::all();
+        $subjects = Subject::where('user_id',Auth::user()->id)->get();
         return view('Manage.pages.Attendance.index', compact('attendances', 'subjects'));
     }
 

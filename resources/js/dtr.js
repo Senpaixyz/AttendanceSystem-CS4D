@@ -105,7 +105,7 @@ function getCurrentTimeIn() {
         document.querySelector("#timeIn_time").innerHTML = currentTime;
         document.querySelector("#timeIn_day").innerHTML = currentDay;
         document.querySelector("#timeIn_date").innerHTML = fullDate;
-        GLOBAL_TIMEIN_TIMEDATE = currentDateTmp;
+        GLOBAL_TIMEIN_TIMEDATE =currentTimeDate;
     }
     else{
         document.querySelector("#timeIn_time").innerHTML = GLOBAL_TIMEIN_TIME;
@@ -154,7 +154,7 @@ function getCurrentTimeOut(){
     document.querySelector("#timeOut_time").innerHTML = currentTime;
     document.querySelector("#timeOut_day").innerHTML = currentDay;
     document.querySelector("#timeOut_date").innerHTML = fullDate;
-    GLOBAL_TIMEOUT_TIMEDATE =currentDateTmp;
+    GLOBAL_TIMEOUT_TIMEDATE =currentTimeDate;
 
     
     setTimeout(getCurrentTimeOut, 500);
