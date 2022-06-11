@@ -4,7 +4,24 @@
     <div class="main-content" id="panel">
     @include('Manage.includes.header')
     <!-- Header -->
-        <div class="header bg-primary">
+    <div class="header bg-white">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                    </div>
+                    <div class="col-lg-6 col-5 text-right">
+                        <button class="btn btn-sm btn-neutral bg-smcl-blue text-white"  data-toggle="modal" data-target="#createAttendance"><i class="fas fa-plus mr-1"> </i> Create New Attendance</button>
+                        <!-- Create Class Modal -->
+                        @include('Manage.pages.Attendance.modals.CreateAttendanceModal')
+                        <!--/ Create Class Modal -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        {{-- <div class="header bg-primary">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
@@ -18,24 +35,24 @@
                             </nav>
                         </div>
                         <div class="col-lg-6 col-5 text-right">
-                            <button class="btn btn-sm btn-neutral"  data-toggle="modal" data-target="#createAttendance"><i class="fas fa-plus mr-1"> </i> New</button>
+                        
                             <a href="{{ route('dashboard') }}" class="btn btn-sm btn-neutral"><i class="fa fa-home" aria-hidden="true"></i> </a>
                             <!-- Create Class Modal -->
-                            @include('Manage.pages.Attendance.modals.CreateAttendanceModal')
+                           
                             <!--/ Create Class Modal -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="container-fluid mt-4">
             <div class="row">
                 <div class="col-12 mb-3">
-                    <div class="card radius">
+                    <div class="bg-white">
                         <!-- Card header -->
-                        <div class="card-header">
-                            <h3 class="mb-0">Filter</h3>
+                        <div class="card-header border-0 bg-white">
+                            <h3 class="mb-0 text-smcl-blue">{{ $subTitle }}</h3>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
@@ -81,7 +98,9 @@
                                     <th scope="col" class="sort" data-sort="teacher">Teacher</th>
                                     <th scope="col" class="sort" data-sort="students">Students Number</th>
                                     <th scope="col" class="sort" data-sort="date">Date</th>
+                                    @if(Auth::user()->role == 'Admin')
                                     <th scope="col" class="sort" data-sort="action">Action</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody class="list">
@@ -104,6 +123,7 @@
                                         <td>
                                             {{ $attendance->date->format('D d, m, Y') }}
                                         </td>
+                                        @if(Auth::user()->role == 'Admin')
                                         <td>
                                             <a href="{{ route('attendance.edit', $attendance) }}" class="btn btn-sm bg-yellow text-white m-0 radius" title="edit">
                                                 <i class="fas fa-edit" aria-hidden="true"></i>
@@ -116,6 +136,7 @@
                                                 </button>
                                             </form>
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>

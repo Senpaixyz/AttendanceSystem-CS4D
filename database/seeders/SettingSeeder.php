@@ -17,7 +17,7 @@ class SettingSeeder extends Seeder
         ],
         [
             'key'                       =>  'dashboard_color',
-            'value'                     =>  '#000000',
+            'value'                     =>  '#18224D',
         ],
         [
             'key'                       =>  'site_logo',

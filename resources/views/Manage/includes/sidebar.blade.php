@@ -3,7 +3,7 @@
     <div class="scrollbar-inner">
         <!-- Brand -->
         <div class="sidenav-header  align-items-center">
-            <a class="navbar-brand" href="javascript:void(0)">
+            <a class="navbar-brand" href="/">
                 {{-- {{ Config::get('settings.site_name') }} --}}
                 <h2 class="text-white">SMCL<br><small>Attendance System</small></h2>
             </a>
@@ -43,18 +43,6 @@
                                 <span class="nav-link-text">Teachers List</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('admin/dtr-logs*')) ? 'active' : '' }}" href="{{ route('teacher.general-dtr-logs') }}">
-                                <i class="fa fa-database text-smcl-red"></i>
-                                <span class="nav-link-text">General Logs</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('admin/all-subjects-logs*')) ? 'active' : '' }}" href="{{ route('teacher.all-subjects-logs') }}">
-                                <i class="fa fa-database text-smcl-red"></i>
-                                <span class="nav-link-text">All Subjects Logs</span>
-                            </a>
-                        </li>
                         <!-- Add Courses -->
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('admin/subject*')) ? 'active' : '' }}" href="{{ route('subject.index') }}">
@@ -64,14 +52,26 @@
                         </li>
                         <!-- End Courses -->
                         <!-- Add Attendance -->
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link {{ (request()->is('admin/attendance*')) ? 'active' : '' }}" href="{{ route('attendance.index') }}">
                                 <i class="fas fa-calendar-alt text-smcl-red"></i>
                                 <span class="nav-link-text">Attendance</span>
                             </a>
-                        </li> --}}
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/all-subjects-logs*')) ? 'active' : '' }}" href="{{ route('teacher.all-subjects-logs') }}">
+                                <i class="fa fa-database text-smcl-red"></i>
+                                <span class="nav-link-text">Subjects Logs</span>
+                            </a>
+                        </li>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/dtr-logs*')) ? 'active' : '' }}" href="{{ route('teacher.general-dtr-logs') }}">
+                                <i class="fa fa-database text-smcl-red"></i>
+                                <span class="nav-link-text">Logs</span>
+                            </a>
+                        </li>
+       
 
 
                         
@@ -96,14 +96,8 @@
                                 <span class="nav-link-text">Students</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('user/dtr-logs*')) ? 'active' : '' }}" href="{{ route('teacher.dtr-logs') }}">
-                                <i class="fa fa-database text-smcl-red"></i>
-                                <span class="nav-link-text">All Subjects Logs</span>
-                            </a>
-                        </li>
                          <!-- Add Courses -->
-                         {{-- <li class="nav-item">
+                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('user/view-subjects*')) ? 'active' : '' }}" href="{{ route('view-subjects.index') }}">
                                 <i class="fas fa-book-open text-smcl-red"></i>
                                 <span class="nav-link-text">Subjects</span>
@@ -115,8 +109,13 @@
                                 <i class="fas fa-calendar-alt text-smcl-red"></i>
                                 <span class="nav-link-text">Attendance</span>
                             </a>
-                        </li> --}}
-
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('user/dtr-logs*')) ? 'active' : '' }}" href="{{ route('teacher.dtr-logs') }}">
+                                <i class="fa fa-database text-smcl-red"></i>
+                                <span class="nav-link-text">Logs</span>
+                            </a>
+                        </li>
 
     
 

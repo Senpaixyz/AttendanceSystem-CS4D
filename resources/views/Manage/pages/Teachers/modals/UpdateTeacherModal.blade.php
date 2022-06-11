@@ -65,7 +65,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary radius" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary radius">Submit</button>
+                    <button type="submit" class="btn bg-smcl-red radius">Submit</button>
                 </div>
             </form>
         </div>
