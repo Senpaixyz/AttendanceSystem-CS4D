@@ -27,6 +27,7 @@ class StoreSubjectRequest extends FormRequest
             'name' => ['required', 'max:255', 'unique:subjects'],
             'start_time_in' => ['required'],
             'start_time_out' => ['required'],
+            'user_id' => ['required'],
             'description' => ['string'],
         ];
     }

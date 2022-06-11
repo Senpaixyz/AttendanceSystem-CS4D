@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         if (!User::where('email', 'test@gmail.com')->exists()) {
             User::create([
-                'name' => 'Jheno Cerbito',
+                'name' => 'Head Teacher',
                 'email' => 'test@gmail.com',
                 'email_verified_at' => Carbon::now(),
                 'password' => Hash::make('12345678'),

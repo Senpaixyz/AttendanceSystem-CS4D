@@ -6,26 +6,6 @@
     @include('Manage.includes.header')
     <!-- Header -->
         <!-- Header -->
-        {{-- <div class="header bg-white pb-6">
-            <div class="container-fluid">
-                <div class="header-body">
-                    <div class="row align-items-center py-4">
-                        <div class="col-lg-6 col-7">
-                            <h6 class="h2 text-smcl-blue d-inline-block mb-0">{{ $pageTitle }}</h6>
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
-                                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
-                                                class="fas fa-home"></i></a>
-                                    </li>
-                                    <li class="breadcrumb-item"><a href="{{ route('teacher.index') }}">{{  $current_user->role }}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{  $current_user->name }}</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <!-- Page content -->
         <div class="container-fluid mt-3">
             <div class="row">
@@ -142,8 +122,8 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="col-12 text-center text-smcl-red">
-                                <h3>No Subjects Assign</h3>
+                            <div class="col-12 text-center">
+                                <h5>No Subjects Assign</h5>
                             </div>
                         @endif
 
@@ -153,69 +133,6 @@
             </div>
         </div>
 
-        <!-- Subjects -->
-        {{-- <div class="container-fluid mt-4">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Table -->
-                    <div class="card">
-                        <!-- Card header -->
-                        <div class="card-header border-0">
-                            <h3 class="mb-0">Subjects</h3>
-                        </div>
-                        <!-- Light table -->
-                        <div class="table-responsive">
-                            <table class="table align-items-center table-flush datatable-buttons">
-                                <thead class="thead-light">
-                                <tr>
-                                    <th scope="col" class="sort" data-sort="number">#</th>
-                                    <th scope="col" class="sort" data-sort="subject">Subject</th>
-                                    <th scope="col" class="sort" data-sort="action">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody class="list">
-                                @foreach ($student->subjects as $subject)
-                                    <tr>
-                                        <td class="text-capitalize">
-                                            <span class="badge badge-primary text-lg rounded-circle">
-                                                {{ $loop->iteration }}
-                                            </span>
-                                        </td>
-                                        <td class="text-capitalize">
-                                            {{ $subject->name }}
-                                        </td>
-                                        <td>
-                                            <button data-toggle="modal" data-target="#updateSubject-{{ $subject->id }}" class="btn btn-sm bg-green-500 text-white m-0 radius" title="edit">
-                                                <i class="fas fa-edit" aria-hidden="true"></i>
-                                            </button>
-                                            <!-- Update Class Modal -->
-                                        @include('Manage.pages.Subject.modals.UpdateSubjectModal', ['subject' => $subject])
-                                        <!--/ Update Class Modal -->
-                                            <a href="{{ route('subject.show', $subject) }}" class="btn btn-sm bg-blue-500 text-white m-0 radius" title="edit">
-                                                <i class="fas fa-eye" aria-hidden="true"></i>
-                                            </a>
-                                            <a href="{{ route('subject.assign-student', $subject) }}" class="btn btn-sm bg-yellow-500 text-white m-0 radius" title="Assign Students">
-                                                <i class="fas fa-users-class" aria-hidden="true"></i>
-                                            </a>
-                                            <form action="{{ route('subject.destroy', $subject) }}" class="d-inline" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button onclick="return confirm('Are you sure? this action will remove all assigned students too')" type="submit" class="btn btn-sm bg-red-500 text-white radius" title="delete">
-                                                    <i class="fas fa-trash" aria-hidden="true"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!--/ Table -->
-                </div>
-            </div>
-        </div> --}}
-        <!--/ Subjects -->
     </div>
 @endsection
 

@@ -5,11 +5,11 @@
     @include('Manage.includes.header')
     <!-- Header -->
         <!-- Header -->
-        <div class="header bg-primary pb-6">
+        {{-- <div class="header bg-primary pb-6">
   
-        </div>
+        </div> --}}
         <!-- Page content -->
-        <div class="container-fluid mt-2">
+        <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-12">
                     <div class="">
@@ -17,10 +17,10 @@
                             <img src="{{ asset(Config::get('settings.site_logo')) }}" onerror="this.onerror=null;this.src='https://picsum.photos/200';"
                                  class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
                                  style="width: 140px;" alt="">
-                            <h1 class="mt-4 text-white">{{ $student->name }}</h1>
+                            <h1 class="mt-4 text-smcl-red">{{ $student->name }}</h1>
                             <blockquote class="blockquote mb-0">
-                                <p class="mb-0 text-light">{{ $student->email }}</p>
-                                <p class="mb-0 text-bold"><a class="text-light " href="tel:{{ $student->phone }}">{{ $student->phone }}</a> </p>
+                                <p class="mb-0 text-smcl-blue">{{ $student->email }}</p>
+                                <p class="mb-0 text-bold"><a class="text-smcl-blue " href="tel:{{ $student->phone }}">{{ $student->phone }}</a> </p>
 
                             </blockquote>
                         </div>

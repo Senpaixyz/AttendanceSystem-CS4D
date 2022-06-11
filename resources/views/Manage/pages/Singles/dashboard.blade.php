@@ -19,13 +19,13 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <a href="">
-                                                                    <h4 class="card-title text-uppercase text-muted mb-0">YOUR STUDENTS</h4>
+                                                                    <h4 class="card-title text-uppercase text-muted mb-0">YOUR HOURS</h4>
                                                                 </a>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <div
                                                                     class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                                                                    {{ $students_count }}
+                                                                    {{ $total_number_hours }}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -44,7 +44,7 @@
                                                             </div>
                                                             <div class="col-auto">
                                                                 <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                                                                    {{ count($subjects) }}
+                                                                    {{ $total_subjects_handle  }}
                                                                 </div>
                                                             </div>
                                                         </div>

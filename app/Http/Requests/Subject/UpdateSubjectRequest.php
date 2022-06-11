@@ -31,6 +31,7 @@ class UpdateSubjectRequest extends FormRequest
             'name' => ['required', 'max:255', Rule::unique('subjects')->ignore($this->subject->id),],
             'start_time_in' => ['required'],
             'start_time_out' => ['required'],
+            'user_id' => ['required'],
             'description' => ['string'],
         ];
     }

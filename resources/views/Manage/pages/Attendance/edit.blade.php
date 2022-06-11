@@ -5,9 +5,9 @@
     @include('Manage.includes.header')
     <!-- Header -->
         <!-- Header -->
-        <div class="header bg-primary pb-6">
+        <div class="header  pb-6">
             <div class="container-fluid">
-                <div class="header-body">
+                {{-- <div class="header-body">
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
                             <h6 class="h2 text-white d-inline-block mb-0"><a
@@ -23,11 +23,11 @@
                             </nav>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -35,10 +35,10 @@
                             <h2 class="mt-4">Attendance for : {{ $attendance->subject->name }} Course</h2>
                             <h3>Date: {{ $attendance->date->format('D d, m, Y') }}</h3>
                             <p class="text-bold"> {{ $attendance->students->count() }} <i
-                                    class="fas fa-users-class text-blue"></i></p>
+                                    class="fas fa-users-class text-smcl-blue"></i></p>
                             <hr>
                             <div class="text-left">
-                                <h2 class="mb-3 text-bold">List of Students</h2>
+                                <h2 class="mb-3 text-bold">Students List</h2>
                                 <form action="{{ route('attendance.student.update', $attendance) }}" method="post">
                                     @csrf
                                     @method('PUT')
@@ -80,7 +80,7 @@
                                         </table>
                                     </div>
                                     <div class="mt-4">
-                                        <button type="submit" class="btn btn-primary btn-block radius">Update</button>
+                                        <button type="submit" class="btn bg-smcl-blue  text-white btn-block radius">Update</button>
                                     </div>
                                 </form>
                             </div>

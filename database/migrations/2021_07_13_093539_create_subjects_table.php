@@ -18,6 +18,7 @@ class CreateSubjectsTable extends Migration
             $table->string('name')->unique();
             $table->string('start_time_in');
             $table->string('start_time_out');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('description')->nullable();
             $table->timestamps();
         });

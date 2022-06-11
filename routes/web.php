@@ -50,6 +50,7 @@ Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 
 
     // Teacher Resources
     Route::resource('/teacher', 'TeacherController')->except('create', 'edit');
+    Route::get('/admin-profile', 'TeacherController@profile')->name('admin.profile');
     //Events Teachers
     Route::post('/update-enable-disable','TeacherController@updateEnableDisable');
 
@@ -65,12 +66,6 @@ Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 
     // Subject Resources
     Route::resource('/subject', 'SubjectController')->except('create', 'edit');
 
-    // Attach students Attendance records
-    Route::post('attendance/attach/{attendance}', 'AttendanceController@attachStudents')->name('attendance.attach');
-    // Edit students Attendance records
-    Route::put('attendance/attach/{attendance}/update', 'AttendanceController@updateAttendanceData')->name('attendance.student.update');
-    // Attendance Resources
-    Route::resource('attendance', 'AttendanceController');
 
     // Settings
     Route::get('/settings', 'SettingController@index')->name('settings.index');
@@ -87,11 +82,14 @@ Route::group(['middleware' => 'role:Admin','namespace' => 'Manage', 'prefix' => 
 Route::group(['middleware' => 'role:User','namespace' => 'Manage', 'prefix' => 'user','middleware'=>'status:active'], function () {
 
     Route::get('/teacher-dashboard', 'MainController@index')->name('teacher-dashboard');
+    Route::get('/teacher-profile', 'TeacherController@profile')->name('teacher.profile');
     //Route::get('/account-locked','MainController@locked_account')->name('account-locked');
     // Student Resources
     Route::resource('/student-list', 'StudentController')->except('create', 'edit');
+
     // Subject Resources
     Route::resource('/view-subjects', 'SubjectController')->except('create', 'edit');
+    Route::get('/view-subjects/subject/{subject}', 'SubjectController@viewteachersubject')->name('view.teacher.subject');
     // Attach students Attendance records
     Route::post('set-attendance/attach/{attendance}', 'AttendanceController@attachStudents')->name('set-attendance.attach');
     // Edit students Attendance records
@@ -102,5 +100,19 @@ Route::group(['middleware' => 'role:User','namespace' => 'Manage', 'prefix' => '
     Route::get('/dtr-logs','TeacherController@showTeacherDTRLogs')->name('teacher.dtr-logs');
     Route::get('/subject/{subject}/teacher-logs','TeacherController@showTeacherSubjectsDTRLogs')->name('subject.dtr.teacher-logs');
 });
+
+
+// Both admin and techer can cretaaaa attenadance
+
+
+// Attach students Attendance records
+Route::post('attendance/attach/{attendance}', 'Manage\AttendanceController@attachStudents')->name('attendance.attach');
+// Edit students Attendance records
+Route::put('attendance/attach/{attendance}/update', 'Manage\AttendanceController@updateAttendanceData')->name('attendance.student.update');
+// Attendance Resources
+Route::resource('attendance', 'Manage\AttendanceController');
+
+
+
 
 

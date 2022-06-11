@@ -27,6 +27,7 @@ body{
 }
 .bg-smcl-blue{
     background-color:  #18224D !important;
+    color: #fff;
 }
 
 /* SMCL RED */
@@ -35,6 +36,7 @@ body{
 }
 .bg-smcl-red{
     background-color:  #890909 !important;
+    color: #fff;
 }
 
 /* SMCL LIGHT BLUE */

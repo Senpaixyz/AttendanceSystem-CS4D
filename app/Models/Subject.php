@@ -20,16 +20,23 @@ class Subject extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'start_time_in', 'start_time_out', 'description'];
+    protected $fillable = ['name', 'start_time_in', 'start_time_out', 'user_id', 'description'];
 
     protected $dates = ['created_at'];
 
-    /**
+     /**
      * @return BelongsTo
      */
     public function teacher(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+    /**
+     * @return BelongsTo
+     */
+    public function teacher_subjects(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'subject_user', 'subject_id', 'user_id');
     }
 
     /**
