@@ -153,7 +153,7 @@ questions
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4 col-sm-6 col-xs-12 intro-image">
-							<img src="Manage/img/aboutus-images/abt-img.png" alt="" />
+							<img src="Manage/img/abt-img.png" alt="" />
 						</div>
 						<div class="col-md-8 col-sm-6 col-xs-12 intro-texts">
             <h1>Our Attendance System</h1>
@@ -242,9 +242,9 @@ questions
 			</div>
 		</section>
 		<!-- Features Section Ends Here -->
-
-    <div class="ques1">
-    <h1 class="t1">FAQs</h1>
+  <div class="faq">
+  <h1>Frequently Ask Questions(FAQs)</h1>
+  <div class="ques1">
   <div id="text">Can I assign an administrator account?</div>
   <div id="close">Yes! Simply go to Teachers List on the left side panel then 
         choose 'ACTION' then click the green icon 'edit'</div>
@@ -272,7 +272,8 @@ questions
   <div id="text">Can I search data easily in this web system?</div>
   <div id="close">Of course! Each user dashboard has a 'search' bar to fetch databases you need!</div>
 </div> 
-</div> -->
+</div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
