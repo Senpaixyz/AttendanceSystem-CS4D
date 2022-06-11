@@ -1,6 +1,6 @@
 /****************/
 body{
-    background-color: #090909 !important;
+    background-color: #FFFFFF !important;
 }
 .bg-darkgrey{
     background-color: #090909 !important;
@@ -13,6 +13,9 @@ body{
 }
 .bg-gray{
     background-color: #272828 !important;
+}
+.bg-white{
+    background-color: #FFFFFF !important;
 }
 .text-lightviolet{
     color: #50347A !important;
