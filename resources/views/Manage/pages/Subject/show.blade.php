@@ -5,13 +5,13 @@
     @include('Manage.includes.header')
     <!-- Header -->
         <!-- Header -->
-        <div class="header bg-white">
+        {{-- <div class="header bg-white">
             <div class="container-fluid">
                 <div class="header-body">
-                    <div class="row align-items-center py-4">
-                        <div class="col-lg-6 col-7">
+                    <div class="row align-items-center py-4"> --}}
+                        {{-- <div class="col-lg-6 col-7"> --}}
                             {{-- <h6 class="h2 text-smcl-blue d-inline-block mb-0"> <a href="{{ route('dashboard') }}">Attendance</a></h6> --}}
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            {{-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark radius">
                                     <li class="breadcrumb-item"><i class="fas fa-book-open"></i></li>
                                     <li class="breadcrumb-item"><a href="{{ route('subject.index') }}">Subjects</a></li>
@@ -22,16 +22,24 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Page content -->
-        <div class="container-fluid">
+        <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col-md-8">
+                <div class="{{ Auth::user()->id == $subject->id  ? 'col-md-8' : 'col-12' }}">
                     <div class="card">
                         <div class="card-body text-center bg-white  radius shadow-2xl">
                             <h1 class="mt-4 text-smcl-blue">{{ $subject->name }}</h1>
+
                             <input type="hidden" value="{{ $subject->start_time_in }}" id="timeIn_data"/>
                             <input type="hidden" value="{{ $subject->start_time_out }}" id="timeOut_data"/>
+                            @if(Auth::user()->id != $subject->id)
+                                @foreach(\App\Models\User::all() as $user)
+                                    @if($user->id == $subject->id)
+                                        <h3>Mr/Ms. {{ $user->name }}</h3>
+                                    @endif
+                                @endforeach
+                            @endif
                             <p class="mb-0 text-smcl-blue ">{{ date("g:i a", strtotime($subject->start_time_in)) }} - {{  date("g:i a", strtotime($subject->start_time_out)) }}</p>
 
                             <p class="text-bold text-smcl-blue ">  This class has <b>{{ $subject->students->count() }}</b> student/s. </p>
@@ -64,7 +72,7 @@
                                                     <form action="{{ route('subject.remove.student',[$subject, $student]) }}" class="d-inline" method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm bg-red-500 text-white radius" title="Remove student">
+                                                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm bg-red-500 radius" title="Remove student">
                                                             <i class="fas fa-trash" aria-hidden="true"></i>
                                                         </button>
                                                     </form>
@@ -78,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="{{ Auth::user()->id == $subject->id  ? 'col-md-4' : 'd-none' }}">
                     <div class="row">
                         <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}"/>
                         <input type="hidden" name="subject_id" id="subject_id" value="{{  $subject->id }}"/>
@@ -126,13 +134,20 @@
                         <div class="col-12 justify-content-center px-5" id="timeIn-div">
                             <div class="card text-white bg-gradient-default">
                                 <div class="card-header  bg-gradient-default text-light text-center">
-                                    <a href="{{ route('subject.dtr.admin-logs', $subject)  }}" class="text-light font-weight-bold"> <i class="fa fa-sign-in" aria-hidden="true"></i> View Attedance Logs</a>
+                                    <a href="{{ route('subject.dtr.admin-logs', $subject)  }}" class="text-light font-weight-bold"> <i class="fa fa-sign-in" aria-hidden="true"></i> View Attendance Logs</a>
                                 </div>
                             </div>
                         </div>
                             
                         @elseif(Auth::user()->role == 'User')
-                            <a href="{{ route('subject.dtr.teacher-logs', $subject)  }}">TEST</a>
+                        <div class="col-12 justify-content-center px-5" id="timeIn-div">
+                            <div class="card text-white bg-gradient-default">
+                                <div class="card-header  bg-gradient-default text-light text-center">
+                                    <a href="{{ route('subject.dtr.teacher-logs', $subject)  }}" class="text-light font-weight-bold"> <i class="fa fa-sign-in" aria-hidden="true"></i>View Attedance Logs</a>
+                                </div>
+                            </div>
+                        </div>
+
                         @endif
                     </div>
                 </div>

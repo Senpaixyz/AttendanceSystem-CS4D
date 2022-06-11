@@ -18,7 +18,7 @@ class SubjectUser extends Migration
             $table->foreignId('subject_id')->constrained('subjects')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
-            $table->unique(['subject_id', 'id']);
+            $table->unique(['subject_id', 'user_id']);
         });
     }
 

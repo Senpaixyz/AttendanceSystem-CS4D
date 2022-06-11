@@ -98,13 +98,14 @@ function getCurrentTimeIn() {
     var currentMonth = month[currentTimeDate.getMonth()];
     var CurrentYear = currentTimeDate.getFullYear();
 
-    var fullDate = `${currentDate} ${currentMonth} ${CurrentYear}`;
+    var fullDate = `${CurrentYear}-${currentMonth}-${currentDate}`;
 
+    var currentDateTmp = `${currentTimeDate.getFullYear()}-${currentTimeDate.getMonth()+1}-${currentDate}`;
     if(!GLOBAL_IS_TIMEIN){
         document.querySelector("#timeIn_time").innerHTML = currentTime;
         document.querySelector("#timeIn_day").innerHTML = currentDay;
         document.querySelector("#timeIn_date").innerHTML = fullDate;
-        GLOBAL_TIMEIN_TIMEDATE = currentTimeDate;
+        GLOBAL_TIMEIN_TIMEDATE = currentDateTmp;
     }
     else{
         document.querySelector("#timeIn_time").innerHTML = GLOBAL_TIMEIN_TIME;
@@ -147,13 +148,13 @@ function getCurrentTimeOut(){
     var currentMonth = month[currentTimeDate.getMonth()];
     var CurrentYear = currentTimeDate.getFullYear();
 
-    var fullDate = `${currentDate} ${currentMonth} ${CurrentYear}`;
+    var fullDate = `${CurrentYear}-${currentMonth}-${currentDate}`;
 
-
+    var currentDateTmp = `${currentTimeDate.getFullYear()}-${currentTimeDate.getMonth()+1}-${currentDate}`;
     document.querySelector("#timeOut_time").innerHTML = currentTime;
     document.querySelector("#timeOut_day").innerHTML = currentDay;
     document.querySelector("#timeOut_date").innerHTML = fullDate;
-    GLOBAL_TIMEOUT_TIMEDATE = currentTimeDate;
+    GLOBAL_TIMEOUT_TIMEDATE =currentDateTmp;
 
     
     setTimeout(getCurrentTimeOut, 500);

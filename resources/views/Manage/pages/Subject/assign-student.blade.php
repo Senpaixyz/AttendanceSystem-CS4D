@@ -1,7 +1,13 @@
 @extends('Manage.layouts.app')
 
 @section('content')
+
     <div class="main-content" id="panel">
+        <style>
+            .select2-selection__choice{
+                color: #fff !important;
+            }
+        </style>
     @include('Manage.includes.header')
     <!-- Header -->
         <div class="header bg-white">
@@ -37,8 +43,8 @@
                            <!-- Assign Student Form -->
                            <div class="col-md-12">
                                <div class="form-group">
-                                   <label class="form-control-label" for="students">Select Students*</label>
-                                   <select id="students" name="students[]" multiple="multiple" class="form-control radius">
+                                   <label class="form-control-label" for="students">Select Students <span class="text-danger">*</span></label>
+                                   <select id="students" name="students[]" multiple="multiple" class="form-control radius text-light">
                                        @foreach($students as $student)
                                            <option value="{{$student->id}}">{{$student->name}}</option>
                                        @endforeach

@@ -26,16 +26,28 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label text-white" for="role">Teacher</label>
+                                    <select id="user_id" class="form-control role radius"
+                                           name="user_id">
+                                           @foreach ($users as $user)
+                                           <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                           @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-control-label text-white" for="role">Time In</label>
+                                    <label class="form-control-label text-white" for="role">From</label>
                                     <input class="form-control"  type='time' value="{{ $subject->start_time_in }}"  name="start_time_in" id="start_time_in" required/>
 
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-control-label text-white" for="role">Time Out</label>
+                                    <label class="form-control-label text-white" for="role">To</label>
                                     <input class="form-control"  type='time' value="{{ $subject->start_time_out }}"  name="start_time_out" id="start_time_out" required/>
 
                                 </div>
@@ -56,7 +68,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary radius" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary radius">Submit</button>
+                    <button type="submit" class="btn bg-smcl-red radius">Submit</button>
                 </div>
             </form>
         </div>

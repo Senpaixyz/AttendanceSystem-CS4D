@@ -17,6 +17,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 class TeacherController extends BaseController
 {
     public function __construct()
@@ -40,8 +41,47 @@ class TeacherController extends BaseController
     public function show(Request $request,User $user){
         $current_user = $user->where('id',$request->teacher)->first();
         $this->setPageTitle($user->name, $user->role . ' Information');
+
+        $subjects = Subject::where('user_id',$user->id)->get();
+
+        $total_subjects_handle = Subject::where('user_id',$user->id)->count();
+
+    
+        $total_number_hours = DB::table('dtr')
+                                            ->where('user_id',$user->id)->sum('number_hours');
+
+        $today_status = DB::table('dtr')->where('user_id',$user->id)->where('timeIn_fulldate', Carbon::now()->format('Y-M-d'))->first();
+
         $info = $user->load('attendances');
-        return view('Manage.pages.Teachers.show', compact('current_user'));
+        return view('Manage.pages.Teachers.show',compact(
+            'current_user',
+            'subjects',
+            'total_subjects_handle',
+            'total_number_hours',
+            'today_status'
+        ));
+    }
+    public function profile(Request $request){
+        $current_user = User::where('id',Auth::user()->id)->first();
+        $this->setPageTitle($current_user->name, $current_user->role . ' Information');
+
+        $subjects = Subject::where('user_id',Auth::user()->id)->get();
+
+        $total_subjects_handle = Subject::where('user_id',Auth::user()->id)->count();
+
+    
+        $total_number_hours = DB::table('dtr')
+                                            ->where('user_id',Auth::user()->id)->sum('number_hours');
+
+        $today_status = DB::table('dtr')->where('user_id',Auth::user()->id)->where('timeIn_fulldate', Carbon::now()->format('Y-M-d'))->first();
+        $info = $current_user->load('attendances');
+        return view('Manage.pages.User.profile', compact(
+                                                    'current_user',
+                                                    'subjects',
+                                                    'total_subjects_handle',
+                                                    'total_number_hours',
+                                                    'today_status'
+                                                ));
     }
 
     /** 

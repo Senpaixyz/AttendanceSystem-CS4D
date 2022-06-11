@@ -12,8 +12,16 @@
                             <span class="avatar avatar-sm rounded-circle">
                                 <img alt="Image placeholder" src="{{ asset(Config::get('settings.site_logo')) }}" onerror="this.onerror=null;this.src='https://picsum.photos/200';">
                             </span>
-                            <div class="media-body  ml-2  d-none d-lg-block">
-                                <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
+                            <div class="media-body  ml-2  d-none d-lg-block m-0 p-0 d-flex mb-3">
+                                @if(Auth::user()->role == 'Admin')
+                                    <a href="{{ route('admin.profile') }}" class="text-decoration-none mb-0 text-light font-weight-bold  m-0 p-0" >
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                @elseif(Auth::user()->role == 'User')
+                                    <a href="{{ route('teacher.profile') }}" class="text-decoration-none mb-0 text-light font-weight-bold  m-0 p-0" >
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </a>

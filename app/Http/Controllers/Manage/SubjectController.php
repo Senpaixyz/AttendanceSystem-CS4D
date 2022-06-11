@@ -35,6 +35,10 @@ class SubjectController extends BaseController
         $this->setPageTitle($subject->name, 'Show Subject');
         return view('Manage.pages.Subject.show', compact('subject'));
     }
+    public function viewteachersubject(Subject $subject){
+        $this->setPageTitle($subject->name, 'Show Subject');
+        return view('Manage.pages.Subject.show', compact('subject'));
+    }
 
     /**
      * @param Subject $subject
@@ -81,11 +85,13 @@ class SubjectController extends BaseController
     public function store(StoreSubjectRequest $request): RedirectResponse
     {
         try {
-            Subject::create($request->validated());
-            alert('Good Job', 'Course Created Successfully', 'success');
+            $subject = Subject::create($request->validated());
+            // $subject_current->teacher_subjects()->save(['user_id' => $request->user_id]);
+            alert('Good Job', 'Subject Created Successfully', 'success');
         }
         catch (\Exception $exception){
-            alert('Oops', 'Please try again', 'error');
+            dd($exception);
+            alert('Oops','Please validate input', 'error');
         }
         // Show Sweet Alert Notification
 
@@ -102,7 +108,7 @@ class SubjectController extends BaseController
     {
         try {
             $subject->update($request->validated());
-            alert('Good Job', 'Course Updated Successfully', 'success');
+            alert('Good Job', 'Subject Updated Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
@@ -121,7 +127,7 @@ class SubjectController extends BaseController
     {
         try {
             $subject->delete();
-            alert('Good Job', 'Course removed Successfully', 'success');
+            alert('Good Job', 'Subject removed Successfully', 'success');
         }
         catch (\Exception $exception){
             alert('Oops', 'Please try again', 'error');
