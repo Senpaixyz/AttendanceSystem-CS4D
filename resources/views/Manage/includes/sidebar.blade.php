@@ -103,14 +103,14 @@
                             </a>
                         </li>
                          <!-- Add Courses -->
-                         {{-- <li class="nav-item">
+                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('user/view-subjects*')) ? 'active' : '' }}" href="{{ route('view-subjects.index') }}">
                                 <i class="fas fa-book-open text-lightviolet"></i>
                                 <span class="nav-link-text">Subjects</span>
                             </a>
                         </li>
                         <!-- Add Attendance -->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link {{ (request()->is('user/set-attendance*')) ? 'active' : '' }}" href="{{ route('set-attendance.index') }}">
                                 <i class="fas fa-calendar-alt text-lightviolet"></i>
                                 <span class="nav-link-text">Attendance</span>
