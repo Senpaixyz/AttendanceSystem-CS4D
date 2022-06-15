@@ -153,7 +153,7 @@ questions
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4 col-sm-6 col-xs-12 intro-image">
-							<img src="Manage/img/aboutus-images/abt-img.png" alt="" />
+							<img src="Manage/img/abt-img.png" alt="" />
 						</div>
 						<div class="col-md-8 col-sm-6 col-xs-12 intro-texts">
             <h1>Our Attendance System</h1>
@@ -175,10 +175,9 @@ questions
 					</div>
 					<div class="col-md-3 col-sm-6 wow fadeInLeft">
 						<div class="single-service">
-              
 							<p><img src="Manage\img\jheno.jpg"></p>
 							<h3>Jheno Cerbito</h3>
-							<p>Main Developer/Programmer</p>
+							<p>Main Programmer/Developer</p>
 							
 						</div>
 					</div>
