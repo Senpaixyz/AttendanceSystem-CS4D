@@ -111,6 +111,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('user/view-leave*')) ? 'active' : '' }}" href="{{ route('view-leave.index') }}">
+                                <i class="fas fa-calendar-alt text-smcl-red"></i>
+                                <span class="nav-link-text">Leave</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ (request()->is('user/dtr-logs*')) ? 'active' : '' }}" href="{{ route('teacher.dtr-logs') }}">
                                 <i class="fa fa-database text-smcl-red"></i>
                                 <span class="nav-link-text">Logs</span>
