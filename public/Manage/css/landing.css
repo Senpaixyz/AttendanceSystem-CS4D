@@ -20,10 +20,6 @@ body{
    font-size: 25px;
    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
-.navbar-brand img{
-    width: 18px;
-    height: 18px;
-}
 .navbar-nav li{
     padding-right: 10px;
 }
@@ -34,9 +30,6 @@ body{
     text-align: left;
     transition: .5s cubic-bezier(1.075, 1.82, 1.165, 1);
 }
-.nav-link a:hover{
-    color: coral;
-}
 .fa-bars{
     color: #fff;
     font-size: 30px !important;
@@ -46,7 +39,7 @@ body{
 }
 .custome-section{
     width: inherit;
-    padding: 30px;
+    padding: 10px;
 
     @media screen and (max-width:991.98px){
         flex-direction: column-reverse;
